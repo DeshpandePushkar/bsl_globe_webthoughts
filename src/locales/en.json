@@ -1,0 +1,39 @@
+{
+  "landing": {
+    "title": "Register your SIM in 5 easy steps",
+    "chooseLanguage": "Choose Language",
+    "steps": {
+      "step1": "Verify your mobile number",
+      "step2": "Choose your SIM registration type",
+      "step3": "Provide your ID and Selfie",
+      "step4": "Fill up the registration form",
+      "step5": "Review your details"
+    },
+    "buttons": {
+      "continue": "Continue",
+      "learnMore": "Learn more about SIM Registration"
+    }
+  },
+  "verification": {
+    "subtitle": "REGISTER YOUR SIM",
+    "title": "1. Verify your mobile number",
+    "description": "Provide your mobile phone number to receive your One-Time PIN via SMS",
+    "hpwNote": {
+      "part1": "If you're an",
+      "linkText1": "HPW customer",
+      "part2": ", click",
+      "linkText2": "here",
+      "part3": "to view your",
+      "linkText3": "OTP"
+    },
+    "mobileLabel": "Mobile / HPW Phone Number",
+    "requestPin": "Request PIN",
+    "termsText": {
+      "part1": "By completing and submitting this form, I understand and agree that the personal data I will provide will be used to register my SIM and to manage and secure my Globe account, in compliance with the",
+      "linkText1": "SIM Registration Act",
+      "part2": "and the",
+      "linkText2": "Privacy Policy of Globe",
+      "part3": ". I affirm that I am of legal age and that the information I will provide is true, accurate, and complete to the best of my knowledge. I acknowledge that any falsification, omission, or concealment of a material fact may result in administrative, civil, or criminal liability."
+    }
+  }
+}

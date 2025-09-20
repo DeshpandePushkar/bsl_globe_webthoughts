@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "title": "Irehistro ang iyong SIM sa 5 madaling hakbang",
+    "chooseLanguage": "Para sa prosesong ito, mas gusto ko",
+    "steps": {
+      "step1": "I-verify ang iyong mobile number",
+      "step2": "Ibigay ang iyong impormasyon sa pagpaparehistro ng SIM",
+      "step3": "Ibigay ang iyong ID at Selfie",
+      "step4": "Ibigay ang iyong impormasyon sa pakikipag-ugnayan",
+      "step5": "Suriin ang iyong buod"
+    },
+    "buttons": {
+      "continue": "Magpatuloy",
+      "learnMore": "Matuto pa tungkol sa SIM Registration"
+    }
+  },
+  "verification": {
+    "subtitle": "I-REGISTER ANG IYONG SIM",
+    "title": "1.I-verify ang iyong mobile number",
+    "description": "Ibigay ang numero ng iyong mobile phone upang matanggap ang iyong One-Time Passcode sa pamamagitan ng SMS.",
+    "hpwNote": {
+      "part1": "If you're an",
+      "linkText1": "HPW customer",
+      "part2": ", click",
+      "linkText2": "here",
+      "part3": "to view your",
+      "linkText3": "OTP"
+    },
+    "mobileLabel": "Numero ng Mobile Phone",
+    "requestPin": "Request Code",
+    "termsText": {
+      "part1": "Sa pagkumpleto at pagsusumite ng form na ito, naiintindihan ko at sumasang-ayon ako na ang personal na data na ibibigay ko ay gagamitin para irehistro ang aking SIM at para pamahalaan at ma-secure ang aking Globe account, bilang pagsunod sa",
+      "linkText1": "Batas sa Pagpaparehistro ng SIM",
+      "part2": "at ang",
+      "linkText2": "Patakaran sa Privacy ng Globe"
+    }
+  }
+}
