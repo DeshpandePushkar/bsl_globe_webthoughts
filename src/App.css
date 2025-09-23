@@ -5,6 +5,20 @@
   /* Variable font weight range */
 }
 
+
+/* Root color variables */
+:root {
+  --primary-blue: #1B458B;
+  --primary-button: #1a73e8;
+  --primary-button-hover: #1B458B;
+  --text-secondary: #212529BF;
+  --white: #ffffff;
+  --border-color: #e9ecef;
+  --hover-bg: #f8f9fa;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+
 /* Global Styles */
 * {
   margin: 0;
@@ -41,4 +55,190 @@ body {
 .nav-logo {
   height: 40px;
   width: auto;
+}
+
+/************* SimRegistrationPage **************/
+
+/* Main container */
+.sim-registration-container {
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Main content wrapper */
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+/* SIM icon container */
+.sim-icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main title */
+.main-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1B458B;
+  line-height: 1.3;
+}
+
+/* Language selector label */
+.language-label {
+  color: #212529BF;
+  font-size: 14px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* Dropdown container */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropdown-button {
+  background: transparent;
+  border: none;
+  color: #1B458B;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+  margin-left: 0.5rem;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.dropdown-arrow-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 120px;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1B458B;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Steps container */
+.steps-container {
+  margin: 1.4rem;
+  text-align: left;
+}
+
+/* Steps list */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Individual step item */
+.step-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #1B458B;
+  font-weight: bold;
+}
+
+/* Step number */
+.step-number {
+  margin-right: 1rem;
+  color: #1B458B;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Buttons container */
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Primary button */
+.primary-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: background-color 0.2s ease;
+  display: block;
+}
+
+.primary-button:hover {
+  background-color: #1557b0;
+}
+
+/* Secondary button */
+.secondary-button {
+  background-color: transparent;
+  color: #1a73e8;
+  border: 1px solid #1a73e8;
+  border-radius: 8px;
+  padding: 6px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.secondary-button:hover {
+  background-color: #1a73e8;
+  color: white;
 }
