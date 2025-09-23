@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from 'react';
+import { Input, Button, Checkbox, Typography, Row, Col } from 'antd';
 import { useLanguage } from "../hooks/useLanguage";
+
+const { Title, Text, Paragraph } = Typography;
 
 const StepOne = () => {
   const { t } = useLanguage();
@@ -33,124 +36,138 @@ const StepOne = () => {
   };
 
   return (
-    <div className="globe-sim-registration">
-      <div className="container-sm">
-        <div className="globe-sim-registration__content">
-          {/* Header */}
-          <div className="globe-sim-registration__header">
-            <h5 className="globe-sim-registration__subtitle">
-              {t("verification.subtitle")}
-            </h5>
-            <h1 className="globe-sim-registration__title">
-              {t("verification.title")}
-            </h1>
-          </div>
+    <div style={{
+      maxWidth: '800px',
+      margin: '0 auto',
+      padding: '24px',
+      minHeight: '100vh'
+    }}>
+      <>
+        <div style={{ textAlign: 'center', marginBottom: '22px' }}>
+          <Title level={5} style={{ color: "#d3d3d3", fontSize: 13, letterSpacing: 5 }}>
+            {t("verification.subtitle")}
+          </Title>
 
-          {/* Icon and Description */}
-          <div className="globe-sim-registration__icon-section">
-            <div className="globe-sim-registration__icon">
-              <div>
-                <img
-                  src="/assets/phone number page.png"
-                  alt="SIM Icon"
-                  className="sim-registration__icon"
-                />
-              </div>
-            </div>
-            <p className="globe-sim-registration__description">
-              {t("verification.description")}
-            </p>
-            <p className="globe-sim-registration__note">
-              {t("verification.hpwNote.part1")}{" "}
-              <a href="#" className="globe-sim-registration__link">
-                {t("verification.hpwNote.linkText1")}
-              </a>{" "}
-              {t("verification.hpwNote.part2")}{" "}
-              <a
-                href="http://192.168.0.254/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="globe-sim-registration__link globe-sim-registration__link--underlined"
-              >
-                {t("verification.hpwNote.linkText2")}
-              </a>{" "}
-              {t("verification.hpwNote.part3")}{" "}
-              <a href="#" className="globe-sim-registration__link">
-                {t("verification.hpwNote.linkText3")}
-              </a>
-            </p>
-          </div>
-
-          {/* Form */}
-          <div className="globe-sim-registration__form">
-            {/* Mobile Number Input */}
-            <div className="form-group">
-              <label className="form-label">
-                {t("verification.mobileLabel")}{" "}
-                <span className="form-label__required">*</span>
-              </label>
-              <div className="input-group">
-                <div className="input-group__container">
-                  <span className="input-group__prefix">+63</span>
-                  <input
-                    type="text"
-                    placeholder="XXXXXXXXX"
-                    value={mobileNumber}
-                    onChange={handleMobileNumberChange}
-                    className="input-group__field"
-                    maxLength={10}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Checkbox */}
-            <div className="form-group">
-              <div className="checkbox-group">
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={(e) => setIsChecked(e.target.checked)}
-                  className="checkbox-input"
-                />
-                <label className="checkbox-label">
-                  {t("verification.termsText.part1")}{" "}
-                  <a
-                    href="https://www.officialgazette.gov.ph/downloads/2022/10oct/20221010-RA-11934-FRM.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="globe-sim-registration__link"
-                  >
-                    {t("verification.termsText.linkText1")}
-                  </a>{" "}
-                  {t("verification.termsText.part2")}{" "}
-                  <a
-                    href="https://www.globe.com.ph/privacy-policy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="globe-sim-registration__link"
-                  >
-                    {t("verification.termsText.linkText2")}
-                  </a>
-                  {/* {t("verification.termsText.part3")} */}
-                </label>
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            <div className="form-actions">
-              <button
-                type="button"
-                disabled={!isButtonEnabled}
-                onClick={handleRequestPin}
-                className="btn btn-primary"
-              >
-                {t("verification.requestPin")}
-              </button>
-            </div>
-          </div>
+          <Title level={4} style={{
+            color: '#1B458B',
+            marginBottom: 0,
+            fontWeight: '500'
+          }}>
+            {t("verification.title")}
+          </Title>
         </div>
-      </div>
+
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <img src="/assets/phone number page.png" width={60} />
+
+          <Title level={4} style={{
+            color: '#1B458B',
+            marginBottom: 0,
+            fontSize: '20px',
+            fontWeight: '400'
+          }}>
+            {t("verification.description")}
+          </Title>
+
+          <Paragraph style={{
+            color: '#212529BF',
+            fontSize: '16px',
+            marginBottom: '0'
+          }}>
+            {t("verification.hpwNote.part1")}{" "}<span style={{ color: '#1890ff' }}>{t("verification.hpwNote.linkText1")}</span>, {t("verification.hpwNote.part2")}{" "}
+            <a
+              href="http://192.168.0.254/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#1890ff' }}
+            >
+              {t("verification.hpwNote.linkText2")}
+            </a>{' '}
+            {t("verification.hpwNote.part3")}{" "}<span style={{ color: '#1890ff' }}>OTP</span>
+          </Paragraph>
+        </div>
+
+        <div style={{ marginBottom: '24px' }}>
+          <Text style={{
+            color: '#212529BF',
+            fontSize: '14px',
+            display: 'block'
+          }}>
+            {t("verification.mobileLabel")}{" "}
+          </Text>
+
+          <Input.Group compact>
+            <Input
+              style={{
+                width: '60px',
+                textAlign: 'center',
+                backgroundColor: '#f5f5f5',
+                border: '1px solid #d9d9d9',
+                padding: "6px 12px"
+              }}
+              value="+63"
+              disabled
+            />
+            <Input
+              style={{
+                width: 'calc(100% - 60px)',
+                border: '1px solid #d9d9d9',
+                padding: "6px 12px"
+              }}
+              placeholder="9XXXXXXXXX"
+              value={mobileNumber}
+              onChange={handleMobileNumberChange}
+              maxLength={10}
+              type="tel"
+            />
+          </Input.Group>
+        </div>
+
+        <div style={{ marginBottom: '24px' }}>
+          <Checkbox
+            checked={isChecked}
+            onChange={(e) => setIsChecked(e.target.checked)}
+            style={{ alignItems: 'flex-start', fontFamily: "Roboto-Regular" }}
+          >
+            <Text style={{
+              fontSize: '14px',
+              color: '#8c8c8c',
+              lineHeight: '1.4'
+            }}>
+              {t("verification.termsText.part1")}{" "}
+              <a
+                href="https://www.officialgazette.gov.ph/downloads/2022/10oct/20221010-RA-11934-FRM.pdf"
+                target="_blank"
+                style={{ color: '#1890ff' }}
+              >
+                {t("verification.termsText.linkText1")}
+              </a>{' '}
+              {t("verification.termsText.part2")}{" "}
+              <a
+                href="https://www.globe.com.ph/privacy-policy"
+                target="_blank"
+                style={{ color: '#1890ff' }}
+              >
+                {t("verification.termsText.linkText2")}
+              </a>{' '}
+              {t("verification.termsText.part3")}
+            </Text>
+          </Checkbox>
+        </div>
+
+        <Row>
+          <Col span={24}>
+            <Button
+              type="primary"
+              block
+              disabled={!isButtonEnabled}
+              onClick={handleRequestPin}
+            >
+              {t("verification.requestPin")}
+            </Button>
+          </Col>
+        </Row>
+      </>
     </div>
   );
 };
