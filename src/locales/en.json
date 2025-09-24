@@ -35,5 +35,33 @@
       "linkText2": "Privacy Policy of Globe",
       "part3": ". I affirm that I am of legal age and that the information I will provide is true, accurate, and complete to the best of my knowledge. I acknowledge that any falsification, omission, or concealment of a material fact may result in administrative, civil, or criminal liability."
     }
+  },
+  "infoPage": {
+    "heading": "Welcome! Here's how to successfully register or update your SIM",
+    "subHeading": "Hi! Please read the guidelines below on how to successfully register your SIM.",
+    "pointOne": "If you are under 18 years old, please ask your parent or guardian to register your SIM.",
+    "pointOneSubDesc": "",
+    "pointTwo": "If your mobile number is owned by a business or enteprise, please contact your authorized representative to register your SIM.",
+    "pointTwoSubDesc": "",
+    "pointThree": "Make sure you have one valid and active government-issued ID with a picture of your face.",
+    "pointThreeSubDesc": "Sample IDs include:",
+    "pointThreeSubDesc1": "- Passport",
+    "pointThreeSubDesc2": "- Driver's License",
+    "pointThreeSubDesc3": "- National ID (Physical only)",
+    "pointThreeSubDesc4": "- Social Security ID (SSS ID)",
+    "pointThreeSubDesc5": "- PRC ID",
+    "pointThreeSubDesc6": "",
+    "pointThreeSubDesc7": "- UMID Card",
+    "pointFour": "",
+    "pointFourSubDesc": "",
+    "pointFourSubDesc1": "",
+    "pointFourSubDesc2": "",
+    "pointFourSubDesc3": "",
+    "pointFourSubDesc4": "",
+    "pointFourSubDesc5": "",
+    "pointFourSubDesc6": "",
+    "finalConditionDesc": "I understand each of these items",
+    "primaryBtn": "Continue",
+    "secondaryBtn": "Exit"
   }
 }

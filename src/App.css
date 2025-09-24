@@ -11,6 +11,7 @@
   --primary-blue: #1B458B;
   --primary-button: #1a73e8;
   --primary-button-hover: #1B458B;
+  --primary-button-disabled: #4096ff;
   --text-secondary: #212529BF;
   --text-disabled: #8c8c8c;
   --white: #ffffff;
@@ -22,7 +23,7 @@
 
 
 .ant-btn-variant-solid:disabled {
-  background-color: var(--primary-button);
+  background-color: var(--primary-button-disabled);
   color: var(--white);
   opacity: 1;
 }
