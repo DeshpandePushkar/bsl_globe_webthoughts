@@ -12,10 +12,12 @@
   --primary-button: #1a73e8;
   --primary-button-hover: #1B458B;
   --text-secondary: #212529BF;
+  --text-disabled: #8c8c8c;
   --white: #ffffff;
   --border-color: #e9ecef;
   --hover-bg: #f8f9fa;
   --shadow: rgba(0, 0, 0, 0.1);
+  --primary-link-color: #1a73e8;
 }
 
 
@@ -30,6 +32,10 @@
 body {
   background-color: white;
   color: #1b458b;
+}
+
+.link-text {
+  color: var(--primary-link-color) !important;
 }
 
 /* Navigation Component */
@@ -241,4 +247,31 @@ body {
 .secondary-button:hover {
   background-color: #1a73e8;
   color: white;
+}
+
+/************* Step One **************/
+
+.step-one-container {
+  max-width: '800px' !important;
+  margin: '0 auto';
+  padding: '24px';
+  min-height: '100vh'
+}
+
+.step-one-hpwNote-container {
+  color: var(--text-secondary) !important;
+  font-size: 16px !important;
+  margin-bottom: '0'
+}
+
+.step-one-mobileLabel-container {
+  color: var(--text-secondary) !important;
+  font-size: '14px';
+  display: 'block'
+}
+
+.step-one-tnc {
+  font-size: "14px";
+  color: var(--text-disabled);
+  line-height: '1.4';
 }

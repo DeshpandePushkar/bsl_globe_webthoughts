@@ -37,10 +37,9 @@ const StepOne = () => {
 
   return (
     <div style={{
-      maxWidth: '800px',
+      maxWidth: '900px',
       margin: '0 auto',
-      padding: '24px',
-      minHeight: '100vh'
+      padding: '16px',
     }}>
       <>
         <div style={{ textAlign: 'center', marginBottom: '22px' }}>
@@ -51,7 +50,7 @@ const StepOne = () => {
           <Title level={4} style={{
             color: '#1B458B',
             marginBottom: 0,
-            fontWeight: '500'
+            fontSize: "1.2rem"
           }}>
             {t("verification.title")}
           </Title>
@@ -63,37 +62,29 @@ const StepOne = () => {
           <Title level={4} style={{
             color: '#1B458B',
             marginBottom: 0,
-            fontSize: '20px',
-            fontWeight: '400'
+            fontSize: '1.2rem',
           }}>
             {t("verification.description")}
           </Title>
 
-          <Paragraph style={{
-            color: '#212529BF',
-            fontSize: '16px',
-            marginBottom: '0'
-          }}>
-            {t("verification.hpwNote.part1")}{" "}<span style={{ color: '#1890ff' }}>{t("verification.hpwNote.linkText1")}</span>, {t("verification.hpwNote.part2")}{" "}
+          <Paragraph className='step-one-hpwNote-container'>
+            {t("verification.hpwNote.part1")}{" "}<span className='link-text'>{t("verification.hpwNote.linkText1")}</span>, {t("verification.hpwNote.part2")}{" "}
             <a
               href="http://192.168.0.254/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#1890ff' }}
+              className='link-text'
             >
               {t("verification.hpwNote.linkText2")}
             </a>{' '}
-            {t("verification.hpwNote.part3")}{" "}<span style={{ color: '#1890ff' }}>OTP</span>
+            {t("verification.hpwNote.part3")}{" "}<span className='link-text'>OTP</span>
           </Paragraph>
         </div>
 
         <div style={{ marginBottom: '24px' }}>
-          <Text style={{
-            color: '#212529BF',
-            fontSize: '14px',
-            display: 'block'
-          }}>
+          <Text className='step-one-mobileLabel-container'>
             {t("verification.mobileLabel")}{" "}
+            <span style={{ color: "red" }}>*</span>
           </Text>
 
           <Input.Group compact>
@@ -127,13 +118,9 @@ const StepOne = () => {
           <Checkbox
             checked={isChecked}
             onChange={(e) => setIsChecked(e.target.checked)}
-            style={{ alignItems: 'flex-start', fontFamily: "Roboto-Regular" }}
+            style={{ alignItems: 'flex-start' }}
           >
-            <Text style={{
-              fontSize: '14px',
-              color: '#8c8c8c',
-              lineHeight: '1.4'
-            }}>
+            <Text className='step-one-tnc'>
               {t("verification.termsText.part1")}{" "}
               <a
                 href="https://www.officialgazette.gov.ph/downloads/2022/10oct/20221010-RA-11934-FRM.pdf"
