@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Input, Button, Checkbox, Typography, Row, Col } from 'antd';
 import { useLanguage } from "../hooks/useLanguage";
+import { useNavigate } from 'react-router-dom';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -8,6 +9,7 @@ const StepOne = () => {
   const { t } = useLanguage();
   const [mobileNumber, setMobileNumber] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleMobileNumberChange = (e) => {
     let value = e.target.value;
@@ -32,6 +34,7 @@ const StepOne = () => {
   const handleRequestPin = () => {
     if (isButtonEnabled) {
       alert("PIN request sent to +63" + mobileNumber);
+      navigate("/step-two");
     }
   };
 

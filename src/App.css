@@ -21,6 +21,12 @@
 }
 
 
+.ant-btn-variant-solid:disabled {
+  background-color: var(--primary-button);
+  color: var(--white);
+  opacity: 1;
+}
+
 /* Global Styles */
 * {
   margin: 0;
