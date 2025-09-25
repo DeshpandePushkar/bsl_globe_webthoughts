@@ -9,12 +9,14 @@
 /* Root color variables */
 :root {
   --primary-blue: #1B458B;
+  --primary-blue-dark: #133b5c;
   --primary-button: #1a73e8;
   --primary-button-hover: #1B458B;
   --primary-button-disabled: #4096ff;
   --text-secondary: #212529BF;
   --text-disabled: #8c8c8c;
   --white: #ffffff;
+  --black: #000000;
   --border-color: #e9ecef;
   --hover-bg: #f8f9fa;
   --shadow: rgba(0, 0, 0, 0.1);
@@ -22,10 +24,27 @@
 }
 
 
-.ant-btn-variant-solid:disabled {
-  background-color: var(--primary-button-disabled);
+
+
+.ant-btn-primary:hover {
+  background-color: var(--primary-blue) !important;
+}
+
+.ant-btn-default:hover {
+  color: var(--white) !important;
+  background-color: var(--primary-button) !important;
+}
+
+.ant-btn-variant-solid:disabled,
+.ant-btn-variant-solid:disabled:hover {
+  background-color: var(--primary-button-disabled) !important;
   color: var(--white);
   opacity: 1;
+}
+
+.ant-btn-variant-outlined:disabled {
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* Global Styles */
@@ -281,4 +300,19 @@ body {
   font-size: "14px";
   color: var(--text-disabled);
   line-height: '1.4';
+}
+
+.step-one-list-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--primary-blue-dark);
+  font-weight: bold;
+}
+
+.step-one-pointThreeSubDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.8rem;
 }

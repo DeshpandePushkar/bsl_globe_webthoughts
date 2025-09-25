@@ -145,6 +145,7 @@ const OTPVerificationPage = () => {
           type="primary"
           block
           disabled={!isFormValid}
+          size='large'
         >
           {t("landing.buttons.continue")}
         </Button>
@@ -153,6 +154,7 @@ const OTPVerificationPage = () => {
           type="default"
           block
           disabled={!isExpired}
+          size='large'
         >
           Resend PIN
         </Button>

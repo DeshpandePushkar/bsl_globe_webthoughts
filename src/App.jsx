@@ -5,6 +5,7 @@ import StepOne from "./components/StepOne";
 import MainLayout from "./components/MainLayout";
 import OTPVerificationPage from "./components/OTPVerificationPage";
 import RegisterYourSim from "./components/RegisterYourSim";
+import StepTwo from "./components/StepTwo";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/step-one" element={<StepOne />} />
           <Route path="/step-two" element={<OTPVerificationPage />} />
           <Route path="/step-three" element={<RegisterYourSim />} />
+          <Route path="/step-four" element={<StepTwo />} />
         </Routes>
       </MainLayout>
     </Router>

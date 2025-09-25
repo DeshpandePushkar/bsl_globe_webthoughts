@@ -152,6 +152,7 @@ const StepOne = () => {
               block
               disabled={!isButtonEnabled}
               onClick={handleRequestPin}
+              size='large'
             >
               {t("verification.requestPin")}
             </Button>

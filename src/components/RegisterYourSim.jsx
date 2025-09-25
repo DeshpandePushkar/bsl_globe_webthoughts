@@ -1,5 +1,6 @@
 import { Button, Typography } from 'antd';
 import { useLanguage } from '../hooks/useLanguage';
+import { isEmpty } from '../generalFunctions';
 
 const { Title, Paragraph } = Typography;
 
@@ -36,37 +37,36 @@ const RegisterYourSim = () => {
 
             <div className="steps-container">
                 <div className="steps-list">
-                    <div className="step-item">
+                    <div className="step-one-list-item">
                         <span className="step-number">1.</span>
                         <span>{t("infoPage.pointOne")}</span>
                     </div>
-                    <div className="step-item">
+                    {!isEmpty(t("infoPage.pointOneSubDesc")) && <span className='step-one-pointThreeSubDesc'>
+                        <span>{t("infoPage.pointOneSubDesc")}</span>
+                    </span>}
+                    <div className="step-one-list-item">
                         <span className="step-number">2.</span>
                         <span>{t("infoPage.pointTwo")}</span>
                     </div>
-                    <div className="step-item">
+                    {!isEmpty(t("infoPage.pointTwoSubDesc")) && <span className='step-one-pointThreeSubDesc'>
+                        <span>{t("infoPage.pointTwoSubDesc")}</span>
+                    </span>}
+                    <div className="step-one-list-item">
                         <span className="step-number">3.</span>
                         <span>{t("infoPage.pointThree")}</span>
                     </div>
-                    <span style={{
-                        fontSize: '12px',
-                        color: '#6c757d',
-                        display: 'block'
-                    }}>
+                    {!isEmpty(t("infoPage.pointThreeSubDesc")) && <span className='step-one-pointThreeSubDesc'>
                         <span>{t("infoPage.pointThreeSubDesc")}</span>
-                    </span>
+                    </span>}
                     <div style={{ marginLeft: '32px' }}>
-                        <div style={{
-                            fontSize: '12px',
-                            color: '#6c757d',
-                            lineHeight: '1.6'
-                        }}>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc1")}</div>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc2")}</div>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc3")}</div>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc4")}</div>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc5")}</div>
-                            <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc7")}</div>
+                        <div className='step-one-pointThreeSubDesc'>
+                            {!isEmpty(t("infoPage.pointThreeSubDesc1")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc1")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc2")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc2")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc3")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc3")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc4")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc4")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc5")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc5")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc6")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc6")}</div>}
+                            {!isEmpty(t("infoPage.pointThreeSubDesc7")) && <div style={{ marginBottom: '2px' }}>{t("infoPage.pointThreeSubDesc7")}</div>}
                         </div>
                     </div>
                 </div>
@@ -76,6 +76,7 @@ const RegisterYourSim = () => {
                 <Button
                     type="primary"
                     block
+                    size='large'
                 >
                     {t("infoPage.primaryBtn")}
                 </Button>
@@ -83,6 +84,7 @@ const RegisterYourSim = () => {
                 <Button
                     type="default"
                     block
+                    size='large'
                 >
                     {t("infoPage.secondaryBtn")}
                 </Button>

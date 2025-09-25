@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
 
 const SimRegistrationPage = () => {
   const { t, currentLanguage, changeLanguage, languages } = useLanguage();
@@ -110,19 +111,22 @@ const SimRegistrationPage = () => {
 
         {/* Action Buttons */}
         <div className="buttons-container">
-          <button
+          <Button
+            type="primary"
             onClick={handleContinue}
-            className="primary-button"
+            block
+            size='large'
           >
             {t("landing.buttons.continue")}
-          </button>
+          </Button>
 
-          <button
+          <Button
             onClick={handleLearnMore}
-            className="secondary-button"
+            block
+            size='large'
           >
             {t("landing.buttons.learnMore")}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
