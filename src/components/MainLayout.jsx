@@ -4,7 +4,7 @@ import { Layout } from "antd";
 
 const MainLayout = ({ children }) => {
   return (
-    <Layout style={{ height: '100vh', overflow: 'hidden', backgroundColor: "white" }}>
+    <Layout style={{ height: '100vh', overflow: 'auto', backgroundColor: "white" }}>
       <NavHeader />
       <main>
         {children}

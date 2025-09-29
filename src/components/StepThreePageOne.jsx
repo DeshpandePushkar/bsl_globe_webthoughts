@@ -30,7 +30,7 @@ const StepThreePageOne = () => {
         </div>
 
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <img src="/assets/registeryoursimicon.png" width={60} />
+          <img src="/assets/registeryoursimicon.png" width={40} />
         </div>
 
         <div className="steps-container">
