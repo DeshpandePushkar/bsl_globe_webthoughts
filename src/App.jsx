@@ -57,29 +57,14 @@ function App() {
                   path="/digital-onboarding/step-one"
                   element={<StepOne />}
                 />
-                <Route
-                  path="/digital-onboarding/inactivity"
-                  element={<InactivityPage />}
-                />
+
                 <Route
                   path="/digital-onboarding/step-two"
-                  element={<OTPVerificationPage />}
+                  element={<StepTwo />}
                 />
 
                 <Route
                   path="/digital-onboarding/step-three"
-                  element={<RegisterYourSim />}
-                />
-                <Route
-                  path="/digital-onboarding/step-four"
-                  element={<StepTwo />}
-                />
-                <Route
-                  path="/digital-onboarding/step-four"
-                  element={<StepTwo />}
-                />
-                <Route
-                  path="/digital-onboarding/id-selfie"
                   element={<IdSelfiePage />}
                 />
                 <Route
@@ -91,6 +76,10 @@ function App() {
                   element={<CameraScanPage />}
                 />
 
+                <Route
+                  path="/digital-onboarding/inactivity"
+                  element={<InactivityPage />}
+                />
                 {/* Catch all other routes and redirect to digital-onboarding */}
                 <Route
                   path="*"

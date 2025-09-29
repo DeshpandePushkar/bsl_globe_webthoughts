@@ -3,17 +3,11 @@ import { useLanguage } from "../hooks/useLanguage";
 
 const { Title, Paragraph } = Typography;
 
-const RegisterYourSim = () => {
+const RegisterYourSim = ({ onContinue, onSecondary }) => {
   const { t } = useLanguage();
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <>
       <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <Title
           level={5}
@@ -24,7 +18,11 @@ const RegisterYourSim = () => {
       </div>
 
       <div style={{ textAlign: "center", marginBottom: "32px" }}>
-        <img src="/assets/registeryoursimicon.png" width={60} />
+        <img
+          src="/assets/registeryoursimicon.png"
+          width={60}
+          alt="Register SIM"
+        />
 
         <Title
           level={4}
@@ -97,15 +95,15 @@ const RegisterYourSim = () => {
       </div>
 
       <div className="buttons-container">
-        <Button type="primary" block>
+        <Button type="primary" block onClick={onContinue}>
           {t("infoPage.primaryBtn")}
         </Button>
 
-        <Button type="default" block>
+        <Button type="default" block onClick={onSecondary}>
           {t("infoPage.secondaryBtn")}
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 
