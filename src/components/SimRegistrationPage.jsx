@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useNavigate } from "react-router-dom";
-import { Button } from "antd";
+import { trackClick } from "../utils/analytics";
 
 const SimRegistrationPage = () => {
   const { t, currentLanguage, changeLanguage, languages } = useLanguage();
@@ -17,14 +17,15 @@ const SimRegistrationPage = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   const handleContinue = () => {
-    navigate("/step-one");
+    trackClick("Continue");
+    navigate("/digital-onboarding/step-one");
   };
 
   const handleLearnMore = () => {
@@ -42,16 +43,12 @@ const SimRegistrationPage = () => {
             <img src="/assets/page1.png" alt="SIM Icon" />
           </div>
 
-          <h1 className="main-title">
-            {t("landing.title")}
-          </h1>
+          <h1 className="main-title">{t("landing.title")}</h1>
         </div>
 
         {/* Language Switcher */}
         <div>
-          <p className="language-label">
-            {t("landing.chooseLanguage")}
-          </p>
+          <p className="language-label">{t("landing.chooseLanguage")}</p>
           <div className="dropdown-container" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -59,7 +56,11 @@ const SimRegistrationPage = () => {
             >
               {languages.find((lang) => lang.key === currentLanguage)?.label ||
                 currentLanguage}
-              <span className={`dropdown-arrow ${dropdownOpen ? 'dropdown-arrow-open' : ''}`}>
+              <span
+                className={`dropdown-arrow ${
+                  dropdownOpen ? "dropdown-arrow-open" : ""
+                }`}
+              >
                 ▼
               </span>
             </button>
@@ -111,22 +112,13 @@ const SimRegistrationPage = () => {
 
         {/* Action Buttons */}
         <div className="buttons-container">
-          <Button
-            type="primary"
-            onClick={handleContinue}
-            block
-            size='large'
-          >
+          <button onClick={handleContinue} className="primary-button">
             {t("landing.buttons.continue")}
-          </Button>
+          </button>
 
-          <Button
-            onClick={handleLearnMore}
-            block
-            size='large'
-          >
+          <button onClick={handleLearnMore} className="secondary-button">
             {t("landing.buttons.learnMore")}
-          </Button>
+          </button>
         </div>
       </div>
     </div>

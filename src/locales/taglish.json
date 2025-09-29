@@ -125,5 +125,53 @@
     "documentScanHeading": "Ilagay ang inyong wastong dokumento ng pagkakakilanlan na ibinigay ng Pamahalaan sa frame ng camera.",
     "documentScanHeading2": "Front Side",
     "documentInst8Label": "Please do not refresh the page, click the back button, or close the window during registration."
+  },
+  "idSelfie": {
+    "subtitle": "I-REGISTER ANG IYONG SIM",
+    "title": "3. Ibigay ang iyong ID at selfie",
+    "steps": {
+      "stepA": {
+        "title": "Maghanda ng valid na government-issued ID.",
+        "description": "Maghanda ng valid na government-issued ID. Siguraduhin na malinaw ang photo at iba pang impormasyon.",
+        "sampleIds": "Kasama sa sample IDs:",
+        "idTypes": [
+          "Passport",
+          "Driver's License",
+          "National ID (Physical only)",
+          "Social Security ID (SSS ID)",
+          "PRC ID",
+          "UMID ID"
+        ]
+      },
+      "stepB": {
+        "title": "I-scan ang iyong dokumento.",
+        "description": "I-scan ang iyong dokumento. Kukunin namin ang mga kinakailangang detalye mula sa image, na maaari mong i-review para sa accuracy."
+      },
+      "stepC": {
+        "title": "Kumuha ng selfie.",
+        "description": "Kumuha ng selfie. Siguraduhin na hindi ka gumagamit o nagsusuot ng anumang accessories tulad ng salamin o sumbrero. Tiyakin na nasa well-lit area ka at walang ibang objects o tao sa background mo. Tumingin ng diretso sa camera at ngumiti."
+      }
+    },
+    "continue": "Magpatuloy"
+  },
+  "idSelfieDetailed": {
+    "subtitle": "I-REGISTER ANG IYONG SIM",
+    "title": "3. Ibigay ang iyong ID at selfie",
+    "instruction": {
+      "heading": "Maghanda ng valid na government-issued ID.",
+      "description": "Siguraduhin na malinaw ang photo at iba pang impormasyon.",
+      "guidelinesLink": "Mga alituntunin sa dokumento"
+    },
+    "guidelines": [
+      "Walang mga daliri o hadlang sa dokumento",
+      "Walang gasgas, dumi o alikabok",
+      "Walang silaw, anino o mga anino",
+      "Mahusay na ilaw na paksa",
+      "Malinaw at mababasa na teksto",
+      "Magandang kaibahan at liwanag",
+      "Matalas na pokus, malinaw na detalye",
+      "Mangyaring huwag i-refresh ang pahina, i-click ang back button, o isara ang window sa panahon ng pagpaparehistro."
+    ],
+    "scanButton": "I-scan gamit ang Camera"
   }
 }
