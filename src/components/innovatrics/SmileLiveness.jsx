@@ -4,7 +4,7 @@ import React from "react";
 
 function SmileLiveness({ onPhotoTaken }) {
   const handleOnComplete = (data, content) => {
-    onPhotoTaken(data[0], content);
+    onPhotoTaken(data, content);
   };
 
   const handleError = (error) => {

@@ -145,53 +145,5 @@
     "selfieInst2Label": "Smile wide",
     "selfieInst3Label": "Good contrast and brightness",
     "selfieInst4Label": "Sharp focus, crisp details"
-  },
-  "idSelfie": {
-    "subtitle": "REGISTER YOUR SIM",
-    "title": "3. Provide your ID and selfie",
-    "steps": {
-      "stepA": {
-        "title": "Prepare a valid government-issued ID.",
-        "description": "Prepare a valid government-issued ID. Make sure that the photo and other information are clearly visible.",
-        "sampleIds": "Sample IDs include:",
-        "idTypes": [
-          "Passport",
-          "Driver's License",
-          "National ID (Physical only)",
-          "Social Security ID (SSS ID)",
-          "PRC ID",
-          "UMID ID"
-        ]
-      },
-      "stepB": {
-        "title": "Scan your document.",
-        "description": "Scan your document. We'll capture the necessary details from the image, which you can review for accuracy."
-      },
-      "stepC": {
-        "title": "Take a selfie.",
-        "description": "Take a selfie. Make sure that you are not using or wearing any accessories such as glasses or hats. Check that you are in all well-lit area with no other objects or people in your background. Look straight at the camera and smile."
-      }
-    },
-    "continue": "Continue"
-  },
-  "idSelfieDetailed": {
-    "subtitle": "REGISTER YOUR SIM",
-    "title": "3. Provide your ID and selfie",
-    "instruction": {
-      "heading": "Prepare a valid government-issued ID.",
-      "description": "Make sure that the photo and other information are clearly visible.",
-      "guidelinesLink": "Document guidelines"
-    },
-    "guidelines": [
-      "No fingers or obstructions on document",
-      "No scratches, smudges or dust",
-      "No glare, reflections or shadows",
-      "Well-lit subject",
-      "Clear and legible text",
-      "Good contrast and brightness",
-      "Sharp focus, crisp details",
-      "Please do not refresh the page, click the back button, or close the window during registration."
-    ],
-    "scanButton": "Scan with Camera"
   }
 }

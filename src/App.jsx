@@ -14,15 +14,11 @@ import InactivityPage from "./components/InactivityPage";
 import NavigationProtection from "./utils/NavigationProtection";
 import { AuthProvider } from "./context/authContext";
 import { OnboardingDataProvider } from "./context/OnboardingDataContext";
-import { SimRegistrationProvider } from "./context/SimRegistrationContext";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./components/MainLayout";
-import OTPVerificationPage from "./components/OTPVerificationPage";
-import RegisterYourSim from "./components/RegisterYourSim";
 import StepTwo from "./components/StepTwo";
-import IdSelfiePage from "./components/IdSelfiePage";
-import IdSelfieDetailedPage from "./components/IdSelfieDetailedPage";
-import CameraScanPage from "./components/CameraScanPage";
+import StepThree from "./components/StepThree";
+
 function App() {
   useEffect(() => {
     initGA();
@@ -32,63 +28,53 @@ function App() {
   return (
     <AuthProvider>
       <OnboardingDataProvider>
-        <SimRegistrationProvider>
-          <Router>
-            <ScrollToTop />
-            <PageTracker />
-            <InactivityHandler />
-            {/* <NavigationProtection /> */}
-            <MainLayout>
-              <Routes>
-                {/* Redirect root to digital-onboarding */}
-                <Route
-                  path="/"
-                  element={<Navigate to="/digital-onboarding" replace />}
-                />
+        <Router>
+          <ScrollToTop />
+          <PageTracker />
+          <InactivityHandler />
+          {/* <NavigationProtection /> */}
+          <MainLayout>
+            <Routes>
+              {/* Redirect root to digital-onboarding */}
+              <Route
+                path="/"
+                element={<Navigate to="/digital-onboarding" replace />}
+              />
 
-                {/* Root route for digital onboarding */}
-                <Route
-                  path="/digital-onboarding"
-                  element={<SimRegistrationPage />}
-                />
+              {/* Root route for digital onboarding */}
+              <Route
+                path="/digital-onboarding"
+                element={<SimRegistrationPage />}
+              />
 
-                {/* Subsequent routes */}
-                <Route
-                  path="/digital-onboarding/step-one"
-                  element={<StepOne />}
-                />
+              {/* Subsequent routes */}
+              <Route
+                path="/digital-onboarding/step-one"
+                element={<StepOne />}
+              />
 
-                <Route
-                  path="/digital-onboarding/step-two"
-                  element={<StepTwo />}
-                />
+              <Route
+                path="/digital-onboarding/step-two"
+                element={<StepTwo />}
+              />
 
-                <Route
-                  path="/digital-onboarding/step-three"
-                  element={<IdSelfiePage />}
-                />
-                <Route
-                  path="/digital-onboarding/id-selfie-detailed"
-                  element={<IdSelfieDetailedPage />}
-                />
-                <Route
-                  path="/digital-onboarding/camera-scan"
-                  element={<CameraScanPage />}
-                />
+              <Route
+                path="/digital-onboarding/step-three"
+                element={<StepThree />}
+              />
 
-                <Route
-                  path="/digital-onboarding/inactivity"
-                  element={<InactivityPage />}
-                />
-                {/* Catch all other routes and redirect to digital-onboarding */}
-                <Route
-                  path="*"
-                  element={<Navigate to="/digital-onboarding" replace />}
-                />
-              </Routes>
-            </MainLayout>
-          </Router>
-        </SimRegistrationProvider>
+              <Route
+                path="/digital-onboarding/inactivity"
+                element={<InactivityPage />}
+              />
+              {/* Catch all other routes and redirect to digital-onboarding */}
+              <Route
+                path="*"
+                element={<Navigate to="/digital-onboarding" replace />}
+              />
+            </Routes>
+          </MainLayout>
+        </Router>
       </OnboardingDataProvider>
     </AuthProvider>
   );
