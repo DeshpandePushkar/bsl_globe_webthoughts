@@ -14,6 +14,7 @@
   --primary-button-disabled: #4096ff;
   --text-secondary: #212529bf;
   --text-disabled: #8c8c8c;
+  --text-gray: #6c757d;
   --white: #ffffff;
   --black: #000000;
   --border-color: #e9ecef;
@@ -58,6 +59,10 @@ body {
 
 .link-text {
   color: var(--primary-link-color) !important;
+}
+
+.text-gray {
+  color: var(--text-gray) !important;
 }
 
 /* Navigation Component */
@@ -311,4 +316,26 @@ body {
   color: var(--text-secondary);
   line-height: 1.6;
   padding-left: 1.8rem;
+}
+
+/* //id-selfi */
+
+.step-id-selfie {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.step-item-id-selfie {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: var(--black);
+  font-weight: bold;
+}
+
+.step-sub-item_id_selfie {
+  color: var(--text-gray) !important;
+  font-size: 14px !important;
+  display: "block" !important;
 }
