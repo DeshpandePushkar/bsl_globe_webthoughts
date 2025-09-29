@@ -1,25 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Input, Button, Checkbox, Typography, Row, Col } from "antd";
+import { Input, Button, Typography } from "antd";
 import { useLanguage } from "../hooks/useLanguage";
 
 const { Title, Paragraph } = Typography;
 
-const OTPVerificationPage = () => {
+const OTPVerificationScreen = ({
+  mobileNumber,
+  onVerified,
+  onResend,
+  onEditMobile,
+}) => {
   const { t } = useLanguage();
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
-
   const [isResendEnabled, setIsResendEnabled] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(180 * 1000);
   const [isRunning, setIsRunning] = useState(true);
+
   const intervalRef = useRef(null);
   const endTimeRef = useRef(0);
-
   const inputRefs = useRef([]);
 
+  // Timer logic
   const updateTime = () => {
     const now = Date.now();
     const remaining = Math.max(0, endTimeRef.current - now);
-
     setTimeRemaining(remaining);
 
     if (remaining === 0) {
@@ -43,15 +47,17 @@ const OTPVerificationPage = () => {
     const totalSeconds = Math.floor(ms / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const remainingSeconds = totalSeconds % 60;
-    const formattedMinutes = String(minutes).padStart(2, "0");
-    const formattedSeconds = String(remainingSeconds).padStart(2, "0");
-    return `${formattedMinutes}:${formattedSeconds}`;
+    return `${String(minutes).padStart(2, "0")}:${String(
+      remainingSeconds
+    ).padStart(2, "0")}`;
   };
 
-  const resendClicked = () => {
+  const handleResendClick = () => {
     setIsRunning(true);
     setTimeRemaining(180 * 1000);
     setIsResendEnabled(false);
+    setOtpValues(["", "", "", "", "", ""]);
+    onResend();
   };
 
   const handleOtpChange = (value, index) => {
@@ -75,14 +81,15 @@ const OTPVerificationPage = () => {
 
   const isFormValid = otpValues.every((value) => value !== "");
 
+  const handleContinue = () => {
+    if (isFormValid) {
+      const otpCode = otpValues.join("");
+      onVerified(otpCode);
+    }
+  };
+
   return (
-    <div
-      style={{
-        maxWidth: "600px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <>
       <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <Title
           level={5}
@@ -104,7 +111,7 @@ const OTPVerificationPage = () => {
       </div>
 
       <div style={{ textAlign: "center", marginBottom: "32px" }}>
-        <img src="/assets/otp.png" width={60} />
+        <img src="/assets/otp.png" width={60} alt="OTP" />
 
         <Title
           level={4}
@@ -114,15 +121,23 @@ const OTPVerificationPage = () => {
             fontSize: "1.2rem",
           }}
         >
-          Enter the One-Time PIN we sent to 639176881387
+          Enter the One-Time PIN we sent to +63{mobileNumber}
         </Title>
 
         <Paragraph className="step-one-hpwNote-container">
           If you didn't receive a code, press Resend PIN
+          <br />
+          <Button
+            type="link"
+            onClick={onEditMobile}
+            style={{ padding: 0, height: "auto" }}
+          >
+            Wrong number? Edit
+          </Button>
         </Paragraph>
       </div>
 
-      {/* Custom OTP Input */}
+      {/* OTP Input */}
       <div
         style={{
           display: "flex",
@@ -142,10 +157,8 @@ const OTPVerificationPage = () => {
                 type="tel"
                 inputMode="numeric"
                 value={value}
-                onChange={(e) =>
-                  handleOtpChange(e.target.value, index, inputRefs)
-                }
-                onKeyDown={(e) => handleKeyDown(e, index, inputRefs)}
+                onChange={(e) => handleOtpChange(e.target.value, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
                 maxLength={1}
                 style={{
                   height: "auto",
@@ -166,21 +179,22 @@ const OTPVerificationPage = () => {
         ))}
       </div>
 
-      {/* Timer with updated logic */}
+      {/* Timer */}
       <div style={{ marginBottom: "40px" }}>
-        <span
-          style={{
-            color: "#6c757d",
-            fontSize: "14px",
-          }}
-        >
+        <span style={{ color: "#6c757d", fontSize: "14px" }}>
           Code expires in:{" "}
           <span style={{ fontWeight: "600" }}>{formatTime(timeRemaining)}</span>
         </span>
       </div>
 
+      {/* Buttons */}
       <div className="buttons-container">
-        <Button type="primary" block disabled={!isFormValid}>
+        <Button
+          type="primary"
+          block
+          disabled={!isFormValid}
+          onClick={handleContinue}
+        >
           {t("landing.buttons.continue")}
         </Button>
 
@@ -188,13 +202,13 @@ const OTPVerificationPage = () => {
           type="default"
           block
           disabled={!isResendEnabled}
-          onClick={resendClicked}
+          onClick={handleResendClick}
         >
           Resend PIN
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 
-export default OTPVerificationPage;
+export default OTPVerificationScreen;
