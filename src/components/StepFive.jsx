@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import SummaryReview from "./SummaryReview";
 import ConfirmationModal from "./ConfirmationModal";
+import { Typography } from "antd";
+import { useLanguage } from "../hooks/useLanguage";
+
+const { Title } = Typography;
 
 const StepFive = () => {
+  const { t } = useLanguage();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Mock data for all sections
@@ -72,7 +77,39 @@ const StepFive = () => {
   };
 
   return (
-    <div className="step-five-container">
+    <div style={{
+      maxWidth: "900px",
+      margin: "0 auto",
+      padding: "20px",
+    }}>
+      <div style={{ textAlign: "center" }}>
+        <Title
+          level={5}
+          style={{ color: "#d3d3d3", fontSize: 13, letterSpacing: 5 }}
+        >
+          {t("verification.subtitle")}
+        </Title>
+
+        <Title
+          level={4}
+          className="text-center-primary"
+        >
+          {t("stepFive.number")} {t("stepFive.mainDesc")}
+        </Title>
+        <div className="text-center">
+          <img
+            src="/assets/review_summary.png"
+            width={60}
+            alt="Register SIM"
+          />
+        </div>
+        <Title
+          level={4}
+          className="text-center-primary"
+        >
+          {t("stepFive.desc")}
+        </Title>
+      </div>
       <SummaryReview data={mockData} onContinue={handleContinue} />
 
       <ConfirmationModal

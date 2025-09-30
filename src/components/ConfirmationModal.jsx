@@ -28,88 +28,68 @@ const ConfirmationModal = ({ visible, onClose, onConfirm }) => {
     >
       <div style={{ padding: "24px" }}>
         {/* Modal Heading */}
-        <h2
-          style={{
-            fontSize: "18px",
-            fontWeight: "600",
-            color: "var(--primary-blue)",
-            marginBottom: "16px",
-            textAlign: "center",
-          }}
-        >
+        <h2 className="text-primary text-center" style={{ fontSize: "1.2rem" }}>
           {t("stepFive.confirmationModalHeading")}
         </h2>
-
-        {/* White Content Box */}
-        <div
+        <Checkbox
+          checked={isChecked}
+          onChange={handleCheckboxChange}
           style={{
-            backgroundColor: "var(--white)",
-            border: "1px solid var(--border-color)",
-            borderRadius: "8px",
-            padding: "20px",
-            marginBottom: "20px",
+            fontSize: "14px",
+            color: "var(--text-secondary)",
+            fontWeight: "500",
           }}
         >
-          {/* Modal Body with clickable links */}
-          <div
-            style={{
-              fontSize: "14px",
-              color: "var(--text-secondary)",
-              lineHeight: "1.6",
-              textAlign: "justify",
-              marginBottom: "16px",
-            }}
-          >
-            <Trans
-              i18nKey="stepFive.confirmationModalBody"
-              components={{
-                1: (
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: "var(--primary-link-color)",
-                      textDecoration: "underline",
-                      fontWeight: "500",
-                    }}
-                  >
-                    SIM Registration Act
-                  </a>
-                ),
-                3: (
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: "var(--primary-link-color)",
-                      textDecoration: "underline",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Privacy Policy of Globe
-                  </a>
-                ),
+          {/* White Content Box */}
+          <div>
+            {/* Modal Body with clickable links */}
+            <div
+              style={{
+                fontSize: "14px",
+                color: "var(--text-secondary)",
+                lineHeight: "1.6",
+                textAlign: "justify",
+                marginBottom: "16px",
               }}
-            />
-          </div>
+            >
+              <Trans
+                i18nKey="stepFive.confirmationModalBody"
+                components={{
+                  1: (
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: "var(--primary-link-color)",
+                        textDecoration: "underline",
+                        fontWeight: "500",
+                      }}
+                    >
+                      SIM Registration Act
+                    </a>
+                  ),
+                  3: (
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: "var(--primary-link-color)",
+                        textDecoration: "underline",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Privacy Policy of Globe
+                    </a>
+                  ),
+                }}
+              />
+            </div>
 
-          {/* Checkbox */}
-          <Checkbox
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-            style={{
-              fontSize: "14px",
-              color: "var(--text-secondary)",
-              fontWeight: "500",
-            }}
-          >
-            <span style={{ marginLeft: "8px" }}>
-              I have read and agree to the terms and conditions
-            </span>
-          </Checkbox>
-        </div>
+
+          </div>
+        </Checkbox>
 
         {/* Modal Footer Buttons */}
         <div

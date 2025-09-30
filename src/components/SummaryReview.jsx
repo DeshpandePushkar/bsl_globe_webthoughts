@@ -31,33 +31,14 @@ const SummaryReview = ({ data, onContinue }) => {
   );
 
   const SectionHeader = ({ icon, title, showEdit = false, editSection }) => (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: "16px",
-        marginTop: "24px",
-      }}
-    >
-      <h3
-        style={{
-          fontSize: "16px",
-          fontWeight: "600",
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          margin: 0,
-          color: "var(--primary-blue)",
-        }}
-      >
-        <img src={icon} alt="" style={{ width: "24px", height: "24px" }} />
+    <div className="step-five-section-header-container">
+      <h3 className="step-five-section-header">
+        <img src={icon} alt="" style={{ width: 40 }} />
         {title}
       </h3>
       {showEdit && (
         <Button
           type="link"
-          icon={<EditOutlined />}
           onClick={() => handleEditClick(editSection)}
           style={{ color: "var(--primary-button)", padding: 0 }}
         >
@@ -68,37 +49,7 @@ const SummaryReview = ({ data, onContinue }) => {
   );
 
   return (
-    <div style={{ padding: "20px 0", maxWidth: "800px", margin: "0 auto" }}>
-      {/* Header */}
-
-      <h2
-        style={{
-          fontSize: "20px",
-          fontWeight: "600",
-          color: "var(--primary-blue)",
-          marginBottom: "8px",
-        }}
-      >
-        {t("stepFive.number")} {t("stepFive.mainDesc")}
-      </h2>
-      <div style={{ textAlign: "center", marginBottom: "16px" }}>
-        <img
-          src="/assets/review_summary.png"
-          alt="Review"
-          style={{ width: "60px", height: "60px", marginBottom: "12px" }}
-        />
-      </div>
-
-      <p
-        style={{
-          color: "var(--text-secondary)",
-          marginBottom: "24px",
-          fontSize: "14px",
-        }}
-      >
-        {t("stepFive.desc")}
-      </p>
-
+    <div>
       {/* Mobile Phone Section */}
       <SectionHeader
         icon="/assets/mobile_phone.png"
@@ -284,6 +235,7 @@ const SummaryReview = ({ data, onContinue }) => {
           <SectionHeader
             icon="/assets/location.png"
             title={t("stepFive.sixthContainerHeading")}
+            showEdit={true}
           />
           <InfoRow
             label={t("stepFive.sixthContainerLabel1")}
@@ -336,6 +288,7 @@ const SummaryReview = ({ data, onContinue }) => {
           <SectionHeader
             icon="/assets/supproting_doc.png"
             title={t("stepFive.eighthContainerHeading")}
+            showEdit={true}
           />
           <InfoRow
             label={t("stepFive.eighthContainerLabel1")}
@@ -346,19 +299,7 @@ const SummaryReview = ({ data, onContinue }) => {
 
       {/* Continue Button */}
       <div style={{ marginTop: "32px", marginBottom: "24px" }}>
-        <Button
-          type="primary"
-          size="large"
-          block
-          onClick={onContinue}
-          className="primary-button"
-          style={{
-            height: "48px",
-            fontSize: "16px",
-            fontWeight: "600",
-            borderRadius: "8px",
-          }}
-        >
+        <Button type="primary" block size="large" onClick={onContinue}>
           Continue
         </Button>
       </div>

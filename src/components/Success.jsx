@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Button, message } from "antd";
+import { Button, message, Typography } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import { useLanguage } from "../hooks/useLanguage";
+
+const { Title } = Typography;
 
 const Success = ({ data, onRegisterAnother, onGoHome }) => {
   const { t } = useLanguage();
@@ -25,9 +27,16 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
         textAlign: "center",
       }}
     >
+      <div style={{ textAlign: "center" }}>
+        <Title
+          level={5}
+          style={{ color: "#d3d3d3", fontSize: 13, letterSpacing: 5 }}
+        >
+          {t("verification.subtitle")}
+        </Title>
+      </div>
       <div
         style={{
-          border: "1px solid var(--border-color)",
           borderRadius: "16px",
           padding: "40px 24px",
           backgroundColor: "var(--white)",
@@ -37,7 +46,7 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
           <img
             src="/assets/success.png"
             alt="Success"
-            style={{ width: "80px", height: "80px" }}
+            style={{ width: 60 }}
           />
         </div>
 
@@ -49,7 +58,7 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
             marginBottom: "12px",
           }}
         >
-          Your SIM is now registered
+          {t("finalScreen.iconLabel")}
         </h2>
 
         <p
@@ -85,7 +94,6 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
               alignItems: "center",
               justifyContent: "center",
               gap: "12px",
-              marginBottom: "12px",
             }}
           >
             <span
@@ -109,15 +117,7 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
             />
           </div>
 
-          <p
-            style={{
-              fontSize: "13px",
-              color: "var(--text-gray)",
-              lineHeight: "1.5",
-              maxWidth: "400px",
-              margin: "0 auto",
-            }}
-          >
+          <p className="text-primary">
             {t("finalScreen.refCodeDesc")}
           </p>
         </div>
@@ -143,85 +143,35 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
           </h4>
 
           <div style={{ marginBottom: "12px" }}>
-            <div
-              style={{
-                fontSize: "13px",
-                color: "var(--text-gray)",
-                marginBottom: "4px",
-              }}
-            >
+            <div className="text-gray" style={{ fontSize: 13 }}>
               {t("finalScreen.mobileNumberLabel")}
             </div>
-            <div
-              style={{
-                fontSize: "15px",
-                color: "var(--black)",
-                fontWeight: "500",
-              }}
-            >
+            <div>
               {data.mobileNumber}
             </div>
           </div>
 
           <div>
-            <div
-              style={{
-                fontSize: "13px",
-                color: "var(--text-gray)",
-                marginBottom: "4px",
-              }}
-            >
+            <div className="text-gray" style={{ fontSize: 13 }}>
               {t("finalScreen.regDateLabel")}
             </div>
-            <div
-              style={{
-                fontSize: "15px",
-                color: "var(--black)",
-                fontWeight: "500",
-              }}
-            >
+            <div>
               {data.registrationDate}
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "12px",
-          }}
-        >
+        <div className="buttons-container">
           <Button
             type="primary"
             size="large"
             block
-            onClick={onRegisterAnother}
-            style={{
-              height: "48px",
-              fontSize: "16px",
-              fontWeight: "600",
-              borderRadius: "8px",
-            }}
-          >
+            onClick={onRegisterAnother}>
             {t("finalScreen.primaryBtnLabel")}
           </Button>
 
-          <Button
-            size="large"
-            block
-            onClick={onGoHome}
-            style={{
-              height: "48px",
-              fontSize: "16px",
-              fontWeight: "600",
-              borderRadius: "8px",
-              backgroundColor: "var(--white)",
-              color: "var(--primary-button)",
-              border: "1px solid var(--primary-button)",
-            }}
-          >
+          <Button block size="large" onClick={onGoHome}>
             {t("finalScreen.secondaryBtnLabel")}
           </Button>
         </div>

@@ -18,7 +18,7 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
         <img
           src="/assets/last_step_error.svg"
           alt="Error"
-          style={{ width: "80px", height: "80px" }}
+          style={{ width: 60 }}
         />
       </div>
 
@@ -66,13 +66,7 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
           >
             Mobile phone number
           </div>
-          <div
-            style={{
-              fontSize: "15px",
-              color: "var(--black)",
-              fontWeight: "500",
-            }}
-          >
+          <div>
             {data.mobileNumber}
           </div>
         </div>
@@ -87,39 +81,19 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
           >
             Date of SIM Registration
           </div>
-          <div
-            style={{
-              fontSize: "15px",
-              color: "var(--black)",
-              fontWeight: "500",
-            }}
-          >
+          <div>
             {data.registrationDate}
           </div>
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-          marginBottom: "32px",
-        }}
-      >
+      <div className="buttons-container">
         <Button
           type="primary"
           size="large"
           block
-          onClick={onRetry}
-          style={{
-            height: "48px",
-            fontSize: "16px",
-            fontWeight: "600",
-            borderRadius: "8px",
-          }}
-        >
+          onClick={onRetry}>
           {t("finalScreen.primaryErrorBtnLabel")}
         </Button>
 
@@ -127,15 +101,6 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
           size="large"
           block
           onClick={onGoHome}
-          style={{
-            height: "48px",
-            fontSize: "16px",
-            fontWeight: "600",
-            borderRadius: "8px",
-            backgroundColor: "var(--white)",
-            color: "var(--primary-button)",
-            border: "1px solid var(--primary-button)",
-          }}
         >
           {t("finalScreen.secondaryErrorBtnLabel")}
         </Button>
@@ -155,7 +120,6 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
             alignItems: "center",
             justifyContent: "center",
             gap: "8px",
-            marginBottom: "12px",
           }}
         >
           <img

@@ -97,7 +97,8 @@ body {
   justify-content: center;
   color: var(--primary-blue) !important;
   margin-bottom: 0;
-  font-size: "1.2rem";
+  font-size: "1.2rem" !important;
+  padding: "20px 0px" !important;
 }
 
 .text-center {
@@ -416,4 +417,27 @@ body {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
+}
+
+.step-five-container {
+  max-width: 700 !important;
+  margin: "auto";
+}
+
+.step-five-section-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.step-five-section-header {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--primary-blue);
 }
