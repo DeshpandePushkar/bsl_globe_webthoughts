@@ -19,6 +19,7 @@ import MainLayout from "./components/MainLayout";
 import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 import StepFour from "./components/StepFour";
+import StepFive from "./components/StepFive";
 
 function App() {
   useEffect(() => {
@@ -68,6 +69,12 @@ function App() {
                 path="/digital-onboarding/step-four"
                 element={<StepFour />}
               />
+
+              <Route
+                path="/digital-onboarding/step-five"
+                element={<StepFive />}
+              />
+
               <Route
                 path="/digital-onboarding/inactivity"
                 element={<InactivityPage />}
