@@ -48,8 +48,8 @@ const DocumentScan = ({ onContinue }) => {
       </div>
       <div style={{ textAlign: "center" }}>
         <img
-          src="/assets/registeryoursimicon.png"
-          width={40}
+          src="/assets/step3-3/1.png"
+          width={60}
           alt="Register SIM"
         />
       </div>
