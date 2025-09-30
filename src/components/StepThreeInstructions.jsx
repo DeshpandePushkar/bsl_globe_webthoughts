@@ -325,16 +325,16 @@ const StepThreeInstructions = ({ onContinue }) => {
       </Row>
 
       <Modal
-        title={t("stepThree.documentInstModalInfoIconText")}
+        title={<span className="text-center-primary">{t("stepThree.documentInstModalInfoIconText")}</span>}
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalOk}
         width="90%"
         style={{ maxWidth: "900px" }}
         footer={[
-          <Button key="ok" type="primary" onClick={handleModalOk}>
+          <Button key="ok" type="primary" size="large" style={{ width: "60%", display: "flex", justifySelf: "center" }} onClick={handleModalOk} block>
             OK
-          </Button>,
+          </Button>
         ]}
       >
         {instructionsContent}
