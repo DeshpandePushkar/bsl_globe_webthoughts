@@ -20,6 +20,7 @@ import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 import StepFour from "./components/StepFour";
 import StepFive from "./components/StepFive";
+import StepSix from "./components/StepSix";
 
 function App() {
   useEffect(() => {
@@ -73,6 +74,11 @@ function App() {
               <Route
                 path="/digital-onboarding/step-five"
                 element={<StepFive />}
+              />
+
+              <Route
+                path="/digital-onboarding/step-six"
+                element={<StepSix />}
               />
 
               <Route

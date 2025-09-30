@@ -40,7 +40,7 @@ const SimRegistrationPage = () => {
         <div>
           <div className="sim-icon-container">
             {/* SIM Card Icon */}
-            <img src="/assets/page1.png" alt="SIM Icon" />
+            <img src="/assets/success.png" alt="SIM Icon" />
           </div>
 
           <h1 className="main-title">{t("landing.title")}</h1>

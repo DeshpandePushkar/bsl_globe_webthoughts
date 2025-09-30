@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>•• ASSET / Multiplatform /SVG /  ic_logo_facebook_messenger</title>
+    <defs>
+        <radialGradient cx="19.2474387%" cy="99.4651948%" fx="19.2474387%" fy="99.4651948%" r="108.959789%" id="radialGradient-1">
+            <stop stop-color="#0099FF" offset="0%"></stop>
+            <stop stop-color="#A033FF" offset="60.9753877%"></stop>
+            <stop stop-color="#FF5280" offset="93.482299%"></stop>
+            <stop stop-color="#FF7061" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="••-ASSET-/-Multiplatform-/-ic_logo_facebook_messenger" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bounding-box" fill-opacity="0" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="32" height="32"></rect>
+        <g id="logo" transform="translate(3.5, 3.8125)" fill-rule="nonzero">
+            <path d="M12.5,0 C5.458375,0 0,5.158 0,12.125 C0,15.7692 1.4935,18.9182 3.9257,21.09325 C4.129875,21.276 4.253125,21.532 4.2615,21.806 L4.329575,24.0295 C4.351325,24.73875 5.083925,25.20025 5.732925,24.91375 L8.214,23.8185 C8.424325,23.72575 8.66,23.7085 8.881625,23.7695 C10.02175,24.083 11.2352,24.25 12.5,24.25 C19.541625,24.25 25,19.092 25,12.125 C25,5.158 19.541625,0 12.5,0 Z" id="Path" fill="url(#radialGradient-1)"></path>
+            <path d="M4.9938,15.6709 L8.665675,9.8454 C9.24975,8.91865 10.5005,8.6879 11.376875,9.34515 L14.2973,11.535475 C14.56525,11.736475 14.933925,11.7354 15.20075,11.5329 L19.144925,8.539525 C19.671375,8.140025 20.35855,8.770025 20.00625,9.3291 L16.334375,15.15465 C15.75025,16.08135 14.4995,16.31215 13.623175,15.65485 L10.702675,13.464475 C10.43475,13.263525 10.06605,13.2646 9.79925,13.4671 L5.85505,16.460475 C5.328625,16.85995 4.641425,16.22995 4.9938,15.6709 Z" id="Path" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>
