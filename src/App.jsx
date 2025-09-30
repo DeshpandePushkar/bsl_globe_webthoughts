@@ -18,6 +18,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./components/MainLayout";
 import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
+import StepFour from "./components/StepFour";
 
 function App() {
   useEffect(() => {
@@ -63,6 +64,10 @@ function App() {
                 element={<StepThree />}
               />
 
+              <Route
+                path="/digital-onboarding/step-four"
+                element={<StepFour />}
+              />
               <Route
                 path="/digital-onboarding/inactivity"
                 element={<InactivityPage />}
