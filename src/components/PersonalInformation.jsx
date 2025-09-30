@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { Form, Input, Select, DatePicker, Button } from "antd";
+import { Form, Input, Select, DatePicker, Button, Typography } from "antd";
 import { useLanguage } from "../hooks/useLanguage";
 import psgcData from "../../psgc.json";
 const { Option } = Select;
+
+
+const { Title } = Typography;
 
 const PersonalInformation = ({ onSubmit }) => {
   const { t } = useLanguage();
@@ -176,301 +179,257 @@ const PersonalInformation = ({ onSubmit }) => {
   };
 
   return (
-    <div style={{ padding: "20px 0" }}>
-      <h2
-        style={{
-          fontSize: "20px",
-          fontWeight: "600",
-          color: "#1e3a8a",
-          marginBottom: "8px",
-        }}
+    <div>
+      <div className="text-center">
+        <img
+          src="/assets/step4/Provide_Supporting_Id.png"
+          width={60}
+          alt="Register SIM"
+        />
+      </div>
+      <Title
+        level={4}
+        className="text-center-primary"
       >
-        {t("stepFour.number")} {t("stepFour.mainDesc")}
-      </h2>
-
-      <p style={{ color: "#6b7280", marginBottom: "24px", fontSize: "14px" }}>
+        {t("stepFour.personalDetailsDesc")}
+      </Title>
+      <p className="text-center text-gray">
         {t("stepFour.personalDetailsSubDesc")}
       </p>
 
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={handleSubmit}
-        autoComplete="off"
-      >
-        {/* Personal Information Section */}
-        <div
-          style={{
-            marginBottom: "32px",
-            padding: "20px",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-          }}
+      <div className="step-four-form-container">
+        <Form
+          form={form}
+          layout="vertical"
+          onFinish={handleSubmit}
+          autoComplete="off"
         >
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img
-              src="/assets/personal_details_icon.png"
-              alt="Personal Info"
-              style={{ width: "24px", height: "24px" }}
-            />
-            {t("stepFour.detailsHeading")}
-            <span
-              style={{ color: "#ef4444", fontSize: "14px", marginLeft: "4px" }}
+          {/* Personal Information Section */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+              <span className="step-item" style={{ gap: 4 }}>
+                <img
+                  src="/assets/personal_details_icon.png"
+                  alt="Personal Info"
+                  style={{ width: 30 }}
+                />
+                {t("stepFour.iconLabel")}</span>
+              <span className="form-required-field">
+                * {t("stepFour.formRequiredLabel")}
+              </span>
+            </div>
+            <Form.Item
+              label={t("stepFour.personalDetailsFirstnameLabel")}
+              name="firstName"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter your ${t(
+                    "stepFour.personalDetailsFirstnameLabel"
+                  ).toLowerCase()}`,
+                },
+              ]}
             >
-              * {t("stepFour.formRequiredLabel")}
-            </span>
-          </h3>
-
-          <Form.Item
-            label={t("stepFour.personalDetailsFirstnameLabel")}
-            name="firstName"
-            rules={[
-              {
-                required: true,
-                message: `Please enter your ${t(
+              <Input
+                placeholder={`Enter ${t(
                   "stepFour.personalDetailsFirstnameLabel"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.personalDetailsFirstnameLabel"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.personalDetailsMiddlenameLabel")}
-            name="middleName"
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.personalDetailsMiddlenameLabel"
-              ).toLowerCase()} (optional)`}
-            />
-          </Form.Item>
+            <Form.Item
+              label={t("stepFour.personalDetailsMiddlenameLabel")}
+              name="middleName"
+            >
+              <Input
+                placeholder={`Enter ${t(
+                  "stepFour.personalDetailsMiddlenameLabel"
+                ).toLowerCase()} (optional)`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.personalDetailsLastnameLabel")}
-            name="lastName"
-            rules={[
-              {
-                required: true,
-                message: `Please enter your ${t(
+            <Form.Item
+              label={t("stepFour.personalDetailsLastnameLabel")}
+              name="lastName"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter your ${t(
+                    "stepFour.personalDetailsLastnameLabel"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Input
+                placeholder={`Enter ${t(
                   "stepFour.personalDetailsLastnameLabel"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.personalDetailsLastnameLabel"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.personalDetailsSuffixLabel")}
-            name="suffix"
-          >
-            <Input placeholder="Jr., Sr., III (optional)" />
-          </Form.Item>
+            <Form.Item
+              label={t("stepFour.personalDetailsSuffixLabel")}
+              name="suffix"
+            >
+              <Input placeholder="Jr., Sr., III (optional)" />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.personalDetailsBirthdateLabel")}
-            name="birthdate"
-            rules={[
-              {
-                required: true,
-                message: `Please select your ${t(
+            <Form.Item
+              label={t("stepFour.personalDetailsBirthdateLabel")}
+              name="birthdate"
+              rules={[
+                {
+                  required: true,
+                  message: `Please select your ${t(
+                    "stepFour.personalDetailsBirthdateLabel"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <DatePicker
+                style={{ width: "100%" }}
+                format="MM/DD/YYYY"
+                placeholder={`Select ${t(
                   "stepFour.personalDetailsBirthdateLabel"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <DatePicker
-              style={{ width: "100%" }}
-              format="MM/DD/YYYY"
-              placeholder={`Select ${t(
-                "stepFour.personalDetailsBirthdateLabel"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.personalDetailsGenderLabel")}
-            name="gender"
-            rules={[
-              {
-                required: true,
-                message: `Please select your ${t(
+            <Form.Item
+              label={t("stepFour.personalDetailsGenderLabel")}
+              name="gender"
+              rules={[
+                {
+                  required: true,
+                  message: `Please select your ${t(
+                    "stepFour.personalDetailsGenderLabel"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Select
+                placeholder={`Select ${t(
                   "stepFour.personalDetailsGenderLabel"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Select
-              placeholder={`Select ${t(
-                "stepFour.personalDetailsGenderLabel"
-              ).toLowerCase()}`}
+                ).toLowerCase()}`}
+              >
+                <Option value="M">Male</Option>
+                <Option value="F">Female</Option>
+                <Option value="O">Other</Option>
+              </Select>
+            </Form.Item>
+          </div>
+
+          {/* Address Section */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+              <span className="step-item" style={{ gap: 4 }}>
+                <img
+                  src="/assets/location.png"
+                  alt="Personal Info"
+                  style={{ width: 30 }}
+                />
+                {t("stepFour.iconLabel")}</span>
+              <span className="form-required-field">
+                * {t("stepFour.formRequiredLabel")}
+              </span>
+            </div>
+
+            <Form.Item
+              label="Unit number, Building name"
+              name="unitNumber"
+              rules={[
+                { required: true, message: "Please enter unit/building name" },
+              ]}
             >
-              <Option value="M">Male</Option>
-              <Option value="F">Female</Option>
-              <Option value="O">Other</Option>
-            </Select>
-          </Form.Item>
-        </div>
+              <Input placeholder="Enter unit number or building name" />
+            </Form.Item>
 
-        {/* Address Section */}
-        <div
-          style={{
-            marginBottom: "32px",
-            padding: "20px",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img
-              src="/assets/location.png"
-              alt="Address"
-              style={{ width: "24px", height: "24px" }}
-            />
-            SIM Registration Details
-            <span
-              style={{ color: "#ef4444", fontSize: "14px", marginLeft: "4px" }}
+            <Form.Item
+              label="Street"
+              name="street"
+              rules={[{ required: true, message: "Please enter street" }]}
             >
-              * Required
-            </span>
-          </h3>
+              <Input placeholder="Enter street name" />
+            </Form.Item>
 
-          <Form.Item
-            label="Unit number, Building name"
-            name="unitNumber"
-            rules={[
-              { required: true, message: "Please enter unit/building name" },
-            ]}
-          >
-            <Input placeholder="Enter unit number or building name" />
-          </Form.Item>
+            <Form.Item label="Village or Subdivision" name="village">
+              <Input placeholder="Enter village or subdivision (optional)" />
+            </Form.Item>
 
-          <Form.Item
-            label="Street"
-            name="street"
-            rules={[{ required: true, message: "Please enter street" }]}
-          >
-            <Input placeholder="Enter street name" />
-          </Form.Item>
-
-          <Form.Item label="Village or Subdivision" name="village">
-            <Input placeholder="Enter village or subdivision (optional)" />
-          </Form.Item>
-
-          {/* <Form.Item
-            label="Province or State"
-            name="province"
-            rules={[{ required: true, message: "Please select province" }]}
-          >
-            <Select
-              placeholder="Select province"
-              onSelect={handleProvinceSelect}
-              disabled={provinces.length === 0}
+            <Form.Item
+              label="Province or State"
+              name="province"
+              rules={[{ required: true, message: "Please select province" }]}
             >
-              {provinces.map((province) => (
-                <Option key={province.code} value={province.code}>
-                  {province.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
+              <Select
+                placeholder="Select province"
+                onSelect={handleProvinceSelect}
+                disabled={provinces.length === 0}
+              >
+                {provinces.map((province) => (
+                  <Option key={province.code} value={province.code}>
+                    {province.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-          <Form.Item
-            label="City"
-            name="city"
-            rules={[{ required: true, message: "Please select city" }]}
-          >
-            <Select
-              placeholder="Select city"
-              onSelect={handleMunicipalitySelect}
-              disabled={municipalities.length === 0}
+            <Form.Item
+              label="City"
+              name="city"
+              rules={[{ required: true, message: "Please select city" }]}
             >
-              {municipalities.map((city) => (
-                <Option key={city.code} value={city.code}>
-                  {city.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
+              <Select
+                placeholder="Select city"
+                onSelect={handleMunicipalitySelect}
+                disabled={municipalities.length === 0}
+              >
+                {municipalities.map((city) => (
+                  <Option key={city.code} value={city.code}>
+                    {city.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-          <Form.Item
-            label="Barangay"
-            name="barangay"
-            rules={[{ required: true, message: "Please select barangay" }]}
-          >
-            <Select
-              placeholder="Select barangay"
-              onSelect={handleBarangaySelect}
-              disabled={barangays.length === 0}
+            <Form.Item
+              label="Barangay"
+              name="barangay"
+              rules={[{ required: true, message: "Please select barangay" }]}
             >
-              {barangays.map((barangay) => (
-                <Option key={barangay.code} value={barangay.code}>
-                  {barangay.name}
-                </Option>
-              ))}
-            </Select>
+              <Select
+                placeholder="Select barangay"
+                onSelect={handleBarangaySelect}
+                disabled={barangays.length === 0}
+              >
+                {barangays.map((barangay) => (
+                  <Option key={barangay.code} value={barangay.code}>
+                    {barangay.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
+
+            <Form.Item
+              label="ZIP code"
+              name="zipCode"
+              rules={[
+                { required: true, message: "Please enter ZIP code" },
+                { pattern: /^\d{4}$/, message: "ZIP code must be 4 digits" },
+              ]}
+            >
+              <Input placeholder="Enter 4-digit ZIP code" maxLength={4} />
+            </Form.Item>
+          </div>
+
+          {/* Submit Button */}
+          <Form.Item>
+            <Button type="primary" block size="large" onClick={onSubmit}>
+              Continue
+            </Button>
           </Form.Item>
-
-          <Form.Item
-            label="ZIP code"
-            name="zipCode"
-            rules={[
-              { required: true, message: "Please enter ZIP code" },
-              { pattern: /^\d{4}$/, message: "ZIP code must be 4 digits" },
-            ]}
-          >
-            <Input placeholder="Enter 4-digit ZIP code" maxLength={4} />
-          </Form.Item> */}
-        </div>
-
-        {/* Submit Button */}
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            size="large"
-            style={{
-              backgroundColor: "#3b82f6",
-              borderColor: "#3b82f6",
-              height: "48px",
-              fontSize: "16px",
-              fontWeight: "500",
-              borderRadius: "8px",
-            }}
-          >
-            Continue
-          </Button>
-        </Form.Item>
-      </Form>
+        </Form>
+      </div>
     </div>
   );
 };

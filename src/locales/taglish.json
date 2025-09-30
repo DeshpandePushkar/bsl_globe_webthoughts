@@ -196,6 +196,7 @@
     "invalidFileSizeAndFormat": "Di-wastong laki at format ng larawan",
     "invalidFileSize": "Di-wastong laki ng larawan",
     "invalidFileFormat": "Di-wastong format ng larawan",
-    "invalidFileDimensions": "Ang laki ng pixel ng na-upload na dokumento ay nasa labas ng pinapayagang hanay na 800x800 hanggang 2000x2000"
+    "invalidFileDimensions": "Ang laki ng pixel ng na-upload na dokumento ay nasa labas ng pinapayagang hanay na 800x800 hanggang 2000x2000",
+    "iconLabel": "SIM Registration Details"
   }
 }

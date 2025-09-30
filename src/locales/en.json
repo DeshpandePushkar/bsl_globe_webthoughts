@@ -216,6 +216,7 @@
     "invalidFileSizeAndFormat": "Invalid image size and format",
     "invalidFileSize": "Invalid image size",
     "invalidFileFormat": "Invalid image format",
-    "invalidFileDimensions": "The uploaded documents pixel size is outside the allowed range of 800x800 to 2000x2000"
+    "invalidFileDimensions": "The uploaded documents pixel size is outside the allowed range of 800x800 to 2000x2000",
+    "iconLabel": "SIM Registration Details"
   }
 }

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Form, Input, Select, Button } from "antd";
+import { Form, Input, Select, Button, Typography } from "antd";
 import { useLanguage } from "../hooks/useLanguage";
 import psgcData from "../../psgc.json"; // Adjust path as needed
 
 const { Option } = Select;
+const { Title } = Typography;
 
 const CompanyInformation = ({ onSubmit }) => {
   const { t } = useLanguage();
@@ -171,161 +172,130 @@ const CompanyInformation = ({ onSubmit }) => {
 
   return (
     <div style={{ padding: "20px 0" }}>
-      <h2
-        style={{
-          fontSize: "20px",
-          fontWeight: "600",
-          color: "#1e3a8a",
-          marginBottom: "8px",
-        }}
+      <div className="text-center">
+        <img
+          src="/assets/step4/Provide_Supporting_Id.png"
+          width={60}
+          alt="Register SIM"
+        />
+      </div>
+      <Title
+        level={4}
+        className="text-center-primary"
       >
-        {t("stepFour.number")} {t("stepFour.mainDesc")}
-      </h2>
-
-      <p style={{ color: "#6b7280", marginBottom: "24px", fontSize: "14px" }}>
+        {t("stepFour.desc")}
+      </Title>
+      <p className="text-center text-gray">
         {t("stepFour.subDesc")}
       </p>
 
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={handleSubmit}
-        autoComplete="off"
-      >
-        {/* Company Details Section */}
-        <div
-          style={{
-            marginBottom: "32px",
-            padding: "20px",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-          }}
+      <div className="step-four-form-container">
+        <Form
+          form={form}
+          layout="vertical"
+          onFinish={handleSubmit}
+          autoComplete="off"
         >
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img
-              src="/assets/location.png"
-              alt="Company Info"
-              style={{ width: "24px", height: "24px" }}
-            />
-            {t("stepFour.detailsHeading")}
-            <span
-              style={{ color: "#ef4444", fontSize: "14px", marginLeft: "4px" }}
-            >
-              * {t("stepFour.formRequiredLabel")}
-            </span>
-          </h3>
+          {/* Company Details Section */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+              <span className="step-item" style={{ gap: 4 }}>
+                <img
+                  src="/assets/location.png" //change icon not match with figma
+                  alt="Personal Info"
+                  style={{ width: 30 }}
+                />
+                {t("stepFour.detailsHeading")}</span>
+              <span className="form-required-field">
+                * {t("stepFour.formRequiredLabel")}
+              </span>
+            </div>
 
-          <Form.Item
-            label={t("stepFour.detailsInputLabel")}
-            name="companyName"
-            rules={[
-              {
-                required: true,
-                message: `Please enter ${t(
+            <Form.Item
+              label={t("stepFour.detailsInputLabel")}
+              name="companyName"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter ${t(
+                    "stepFour.detailsInputLabel"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Input
+                placeholder={`Enter ${t(
                   "stepFour.detailsInputLabel"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.detailsInputLabel"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
-        </div>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
+          </div>
 
-        {/* Company Location Section */}
-        <div
-          style={{
-            marginBottom: "32px",
-            padding: "20px",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img
-              src="/assets/location.png"
-              alt="Location"
-              style={{ width: "24px", height: "24px" }}
-            />
-            {t("stepFour.locationDetailsHeading")}
-            <span
-              style={{ color: "#ef4444", fontSize: "14px", marginLeft: "4px" }}
+          {/* Company Location Section */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+              <span className="step-item" style={{ gap: 4 }}>
+                <img
+                  src="/assets/location.png" //change icon not match with figma
+                  alt="Personal Info"
+                  style={{ width: 30 }}
+                />
+                {t("stepFour.locationDetailsHeading")}</span>
+              <span className="form-required-field">
+                * {t("stepFour.formRequiredLabel")}
+              </span>
+            </div>
+
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel1")}
+              name="unitNumber"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter ${t(
+                    "stepFour.locationDetailsInputLabel1"
+                  ).toLowerCase()}`,
+                },
+              ]}
             >
-              * {t("stepFour.formRequiredLabel")}
-            </span>
-          </h3>
-
-          <Form.Item
-            label={t("stepFour.locationDetailsInputLabel1")}
-            name="unitNumber"
-            rules={[
-              {
-                required: true,
-                message: `Please enter ${t(
+              <Input
+                placeholder={`Enter ${t(
                   "stepFour.locationDetailsInputLabel1"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.locationDetailsInputLabel1"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.locationDetailsInputLabel2")}
-            name="street"
-            rules={[
-              {
-                required: true,
-                message: `Please enter ${t(
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel2")}
+              name="street"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter ${t(
+                    "stepFour.locationDetailsInputLabel2"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Input
+                placeholder={`Enter ${t(
                   "stepFour.locationDetailsInputLabel2"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.locationDetailsInputLabel2"
-              ).toLowerCase()}`}
-            />
-          </Form.Item>
+                ).toLowerCase()}`}
+              />
+            </Form.Item>
 
-          <Form.Item
-            label={t("stepFour.locationDetailsInputLabel3")}
-            name="village"
-          >
-            <Input
-              placeholder={`Enter ${t(
-                "stepFour.locationDetailsInputLabel3"
-              ).toLowerCase()} (optional)`}
-            />
-          </Form.Item>
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel3")}
+              name="village"
+            >
+              <Input
+                placeholder={`Enter ${t(
+                  "stepFour.locationDetailsInputLabel3"
+                ).toLowerCase()} (optional)`}
+              />
+            </Form.Item>
 
-          {/* <Form.Item
+            {/* <Form.Item
             label={t("stepFour.locationDetailsInputLabel4")}
             name="province"
             rules={[
@@ -352,7 +322,7 @@ const CompanyInformation = ({ onSubmit }) => {
             </Select>
           </Form.Item> */}
 
-          {/* <Form.Item
+            {/* <Form.Item
             label={t("stepFour.locationDetailsInputLabel5")}
             name="city"
             rules={[
@@ -379,7 +349,7 @@ const CompanyInformation = ({ onSubmit }) => {
             </Select>
           </Form.Item> */}
 
-          {/* <Form.Item
+            {/* <Form.Item
             label={t("stepFour.locationDetailsInputLabel6")}
             name="barangay"
             rules={[
@@ -406,48 +376,36 @@ const CompanyInformation = ({ onSubmit }) => {
             </Select>
           </Form.Item> */}
 
-          <Form.Item
-            label={t("stepFour.locationDetailsInputLabel7")}
-            name="zipCode"
-            rules={[
-              {
-                required: true,
-                message: `Please enter ${t(
-                  "stepFour.locationDetailsInputLabel7"
-                ).toLowerCase()}`,
-              },
-              {
-                pattern: /^\d{4}$/,
-                message: `${t(
-                  "stepFour.locationDetailsInputLabel7"
-                )} must be 4 digits`,
-              },
-            ]}
-          >
-            <Input placeholder="Enter 4-digit ZIP code" maxLength={4} />
-          </Form.Item>
-        </div>
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel7")}
+              name="zipCode"
+              rules={[
+                {
+                  required: true,
+                  message: `Please enter ${t(
+                    "stepFour.locationDetailsInputLabel7"
+                  ).toLowerCase()}`,
+                },
+                {
+                  pattern: /^\d{4}$/,
+                  message: `${t(
+                    "stepFour.locationDetailsInputLabel7"
+                  )} must be 4 digits`,
+                },
+              ]}
+            >
+              <Input placeholder="Enter 4-digit ZIP code" maxLength={4} />
+            </Form.Item>
+          </div>
 
-        {/* Submit Button */}
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            size="large"
-            style={{
-              backgroundColor: "#3b82f6",
-              borderColor: "#3b82f6",
-              height: "48px",
-              fontSize: "16px",
-              fontWeight: "500",
-              borderRadius: "8px",
-            }}
-          >
-            {t("stepFour.companyLocationPrimaryBtn")}
-          </Button>
-        </Form.Item>
-      </Form>
+          {/* Submit Button */}
+          <Form.Item>
+            <Button type="primary" block size="large" onClick={onSubmit}>
+              {t("stepFour.companyLocationPrimaryBtn")}
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
 };

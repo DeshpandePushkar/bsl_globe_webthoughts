@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Form, Upload, Button, Collapse, message } from "antd";
+import { Form, Upload, Button, Collapse, message, Typography } from "antd";
 import { PaperClipOutlined, DownOutlined } from "@ant-design/icons";
 import { useLanguage } from "../hooks/useLanguage";
 
 const { Panel } = Collapse;
+const { Title } = Typography;
 
 const SupportingDocuments = ({ onSubmit }) => {
   const { t } = useLanguage();
@@ -105,89 +106,39 @@ const SupportingDocuments = ({ onSubmit }) => {
 
   return (
     <div style={{ padding: "20px 0" }}>
-      {!isAccordionOpen && (
-        <>
-          <h2
-            style={{
-              fontSize: "20px",
-              fontWeight: "600",
-              color: "#1e3a8a",
-              marginBottom: "8px",
-            }}
-          >
-            {t("stepFour.number")} {t("stepFour.mainDesc")}
-          </h2>
-
-          <div
-            style={{
-              textAlign: "center",
-              marginBottom: "32px",
-              marginTop: "32px",
-            }}
-          >
-            <img
-              src="/assets/supporting_doc.png"
-              alt="Documents"
-              style={{ width: "48px", height: "48px", marginBottom: "16px" }}
-            />
-            <h3
-              style={{
-                fontSize: "18px",
-                fontWeight: "600",
-                color: "#1e3a8a",
-                marginBottom: "8px",
-              }}
-            >
-              {t("stepFour.docInfoDesc")}
-            </h3>
-            <p style={{ color: "#6b7280", fontSize: "14px" }}>
-              {t("stepFour.docInfoSubDesc")}
-            </p>
-          </div>
-        </>
-      )}
+      <div className="text-center">
+        <img
+          src="/assets/supporting_doc.png"
+          width={60}
+          alt="Register SIM"
+        />
+      </div>
+      <Title
+        level={4}
+        className="text-center-primary"
+      >
+        {t("stepFour.docInfoDesc")}
+      </Title>
+      <p className="text-center text-gray">
+        {t("stepFour.docInfoSubDesc")}
+      </p>
 
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
-        <div
-          style={{
-            marginBottom: "32px",
-            padding: "20px",
-            backgroundColor: "#f9fafb",
-            borderRadius: "8px",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: "600",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img
-              src="/assets/doc.png"
-              alt="Documents"
-              style={{ width: "24px", height: "24px" }}
-            />
-            {t("stepFour.docInfoFcHeaderMainText")}
-          </h3>
+        <div>
+
+          <img
+            src="/assets/doc.png"
+            alt="Documents"
+            style={{ width: 40 }}
+          />
+          <p className="text-black" style={{ fontSize: "1.2rem" }}> {t("stepFour.docInfoFcHeaderMainText")}</p>
 
           <div style={{ marginBottom: "16px" }}>
             {!isAccordionOpen && (
               <>
-                <p
-                  style={{
-                    color: "#1e40af",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    marginBottom: "8px",
-                  }}
-                >
+                <p className="text-primary">
                   {t("stepFour.docInfoFcBodyText1")}
-                </p>
-                <p style={{ color: "#6b7280", fontSize: "14px" }}>
+                  <br />
                   {t("stepFour.docInfoFcBodyText2")}
                 </p>
               </>
@@ -203,13 +154,13 @@ const SupportingDocuments = ({ onSubmit }) => {
           >
             <Panel
               header={
-                <span style={{ color: "#3b82f6", fontWeight: "500" }}>
+                <span className="text-primary-light">
                   {t("stepFour.docInfoFcBodyAccordianLabelOpen")}
                 </span>
               }
               key="1"
             >
-              <div style={{ color: "#6b7280", fontSize: "14px" }}>
+              <div className="text-gray">
                 <p style={{ marginBottom: "12px" }}>
                   {t("stepFour.docInfoFcBodyAccordianBodyHeading")}
                 </p>
@@ -231,7 +182,7 @@ const SupportingDocuments = ({ onSubmit }) => {
             label={
               <span>
                 {t("stepFour.inputAccountTypeLabel2")}{" "}
-                <span style={{ color: "#ef4444" }}>*</span>
+                <span className="form-required-field">*</span>
               </span>
             }
             name="addressProof"
@@ -253,20 +204,9 @@ const SupportingDocuments = ({ onSubmit }) => {
                 showRemoveIcon: true,
               }}
             >
-              <div
-                style={{
-                  border: "1px solid #d1d5db",
-                  borderRadius: "8px",
-                  padding: "16px",
-                  cursor: "pointer",
-                  backgroundColor: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}
-              >
-                <PaperClipOutlined style={{ color: "#9ca3af" }} />
-                <span style={{ color: "#9ca3af", fontSize: "14px" }}>
+              <div className="step-four-upload-input">
+                <PaperClipOutlined className="text-gray" />
+                <span className="text-gray">
                   Scan, browse, or drag & drop here.
                 </span>
               </div>
@@ -300,20 +240,9 @@ const SupportingDocuments = ({ onSubmit }) => {
                 showRemoveIcon: true,
               }}
             >
-              <div
-                style={{
-                  border: "1px solid #d1d5db",
-                  borderRadius: "8px",
-                  padding: "16px",
-                  cursor: "pointer",
-                  backgroundColor: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}
-              >
-                <PaperClipOutlined style={{ color: "#9ca3af" }} />
-                <span style={{ color: "#9ca3af", fontSize: "14px" }}>
+              <div className="step-four-upload-input" >
+                <PaperClipOutlined className="text-gray" />
+                <span className="text-gray">
                   Scan, browse, or drag & drop here.
                 </span>
               </div>
@@ -323,20 +252,7 @@ const SupportingDocuments = ({ onSubmit }) => {
 
         {/* Submit Button */}
         <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            size="large"
-            style={{
-              backgroundColor: "#3b82f6",
-              borderColor: "#3b82f6",
-              height: "48px",
-              fontSize: "16px",
-              fontWeight: "500",
-              borderRadius: "8px",
-            }}
-          >
+          <Button type="primary" block size="large" onClick={onSubmit}>
             {t("stepFour.docInfoPrimaryBtn")}
           </Button>
         </Form.Item>

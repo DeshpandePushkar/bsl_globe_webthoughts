@@ -3,9 +3,14 @@ import { useNavigate } from "react-router-dom";
 import PersonalInformation from "./PersonalInformation";
 import CompanyInformation from "./CompanyInformation";
 import SupportingDocuments from "./SupportingDocuments";
+import { Button, Typography, Row, Col } from "antd";
+import { useLanguage } from "../hooks/useLanguage";
+
+const { Title } = Typography;
 
 const StepFour = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   // Local state for managing screens within this step
   const [currentScreen, setCurrentScreen] = useState("personal");
@@ -51,6 +56,21 @@ const StepFour = () => {
         padding: "20px",
       }}
     >
+      <div style={{ textAlign: "center", marginBottom: "22px" }}>
+        <Title
+          level={5}
+          style={{ color: "#d3d3d3", fontSize: 13, letterSpacing: 5 }}
+        >
+          {t("verification.subtitle")}
+        </Title>
+
+        <Title
+          level={4}
+          className="text-center-primary"
+        >
+          {t("stepFour.number")} {t("stepFour.mainDesc")}
+        </Title>
+      </div>
       {currentScreen === "personal" && (
         <PersonalInformation onSubmit={handlePersonalInfoContinue} />
       )}

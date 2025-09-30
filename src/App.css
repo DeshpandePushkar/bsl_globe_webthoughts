@@ -18,6 +18,7 @@
   --white: #ffffff;
   --black: #000000;
   --green: #27a567;
+  --red: #ef4444;
   --border-color: #e9ecef;
   --hover-bg: #f8f9fa;
   --shadow: rgba(0, 0, 0, 0.1);
@@ -79,6 +80,18 @@ body {
   color: var(--text-green) !important;
 }
 
+.text-primary {
+  color: var(--primary-blue) !important;
+}
+
+.text-black {
+  color: var(--black) !important;
+}
+
+.text-primary-light {
+  color: var(--primary-link-color) !important;
+}
+
 .text-center-primary {
   display: flex;
   justify-content: center;
@@ -90,6 +103,12 @@ body {
 .text-center {
   display: flex;
   justify-content: center;
+}
+
+.form-required-field {
+  color: var(--red);
+  font-size: "14px";
+  margin-left: "4px";
 }
 
 /* Navigation Component */
@@ -378,4 +397,23 @@ body {
   color: var(--text-secondary) !important;
   font-size: 16px !important;
   font-weight: bold;
+}
+
+.step-four-form-container {
+  max-width: 700;
+  display: "flex";
+  justify-content: "center";
+  flex-direction: "column";
+  margin: "auto";
+}
+
+.step-four-upload-input {
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  cursor: pointer !important;
+  background-color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
