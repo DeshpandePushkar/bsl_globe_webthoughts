@@ -58,17 +58,17 @@ const StepSix = ({ registrationData }) => {
     return <StepSixLoadingScreen />;
   }
 
-  // if (status === "success") {
-  //   return (
-  //     <Success
-  //       data={responseData}
-  //       onRegisterAnother={handleRegisterAnother}
-  //       onGoHome={handleGoHome}
-  //     />
-  //   );
-  // }
-
   if (status === "success") {
+    return (
+      <Success
+        data={responseData}
+        onRegisterAnother={handleRegisterAnother}
+        onGoHome={handleGoHome}
+      />
+    );
+  }
+
+  if (status === "error") {
     return (
       <StepSixError
         data={responseData}
