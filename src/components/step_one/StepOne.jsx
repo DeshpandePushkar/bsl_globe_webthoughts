@@ -1,12 +1,13 @@
 import { useState } from "react";
 import MobileNumberScreen from "./MobileNumberScreen";
 import OTPVerificationScreen from "./OTPVerificationPage";
+import { useNavigate } from "react-router-dom";
 
 const StepOne = () => {
   // Local state for managing screens within this step
   const [currentScreen, setCurrentScreen] = useState("mobile");
   const [mobileNumber, setMobileNumber] = useState("");
-
+  const navigate = useNavigate();
   // Handle mobile number submission
   const handleMobileSubmit = (mobile) => {
     setMobileNumber(mobile);
@@ -16,11 +17,11 @@ const StepOne = () => {
   };
 
   // Handle OTP verification success
-  const handleOTPVerified = (otp) => {
+  const handleOTPSubmit = (otp) => {
     console.log("OTP verified:", otp);
     console.log("Mobile:", mobileNumber);
     // Navigate to step 2 or handle completion
-    // navigate("/digital-onboarding/step-two");
+    navigate("/digital-onboarding/step-two");
   };
 
   // Handle resend OTP
@@ -35,13 +36,7 @@ const StepOne = () => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div className="main-steps-container">
       {currentScreen === "mobile" && (
         <MobileNumberScreen
           initialMobile={mobileNumber}
@@ -52,7 +47,7 @@ const StepOne = () => {
       {currentScreen === "otp" && (
         <OTPVerificationScreen
           mobileNumber={mobileNumber}
-          onVerified={handleOTPVerified}
+          onSubmit={handleOTPSubmit}
           onResend={handleResendOTP}
           onEditMobile={handleEditMobile}
         />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, message, Typography } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title } = Typography;
 
@@ -43,11 +43,7 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
         }}
       >
         <div style={{ marginBottom: "24px" }}>
-          <img
-            src="/assets/success.png"
-            alt="Success"
-            style={{ width: 60 }}
-          />
+          <img src="/assets/success.png" alt="Success" style={{ width: 60 }} />
         </div>
 
         <h2
@@ -117,9 +113,7 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
             />
           </div>
 
-          <p className="text-primary">
-            {t("finalScreen.refCodeDesc")}
-          </p>
+          <p className="text-primary">{t("finalScreen.refCodeDesc")}</p>
         </div>
 
         {/* SIM Registration Details */}
@@ -146,28 +140,20 @@ const Success = ({ data, onRegisterAnother, onGoHome }) => {
             <div className="text-gray" style={{ fontSize: 13 }}>
               {t("finalScreen.mobileNumberLabel")}
             </div>
-            <div>
-              {data.mobileNumber}
-            </div>
+            <div>{data.mobileNumber}</div>
           </div>
 
           <div>
             <div className="text-gray" style={{ fontSize: 13 }}>
               {t("finalScreen.regDateLabel")}
             </div>
-            <div>
-              {data.registrationDate}
-            </div>
+            <div>{data.registrationDate}</div>
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="buttons-container">
-          <Button
-            type="primary"
-            size="large"
-            block
-            onClick={onRegisterAnother}>
+          <Button type="primary" size="large" block onClick={onRegisterAnother}>
             {t("finalScreen.primaryBtnLabel")}
           </Button>
 

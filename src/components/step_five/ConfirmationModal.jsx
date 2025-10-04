@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Checkbox } from "antd";
 import { Trans } from "react-i18next";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const ConfirmationModal = ({ visible, onClose, onConfirm }) => {
   const { t } = useLanguage();
@@ -57,7 +57,7 @@ const ConfirmationModal = ({ visible, onClose, onConfirm }) => {
                 components={{
                   1: (
                     <a
-                      href="#"
+                      href="https://www.officialgazette.gov.ph/downloads/2022/10oct/20221010-RA-11934-FRM.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -71,7 +71,7 @@ const ConfirmationModal = ({ visible, onClose, onConfirm }) => {
                   ),
                   3: (
                     <a
-                      href="#"
+                      href="https://www.globe.com.ph/privacy-policy"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -86,8 +86,6 @@ const ConfirmationModal = ({ visible, onClose, onConfirm }) => {
                 }}
               />
             </div>
-
-
           </div>
         </Checkbox>
 

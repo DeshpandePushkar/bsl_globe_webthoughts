@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form, Upload, Button, Collapse, message, Typography } from "antd";
 import { PaperClipOutlined, DownOutlined } from "@ant-design/icons";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Panel } = Collapse;
 const { Title } = Typography;
@@ -106,32 +106,31 @@ const SupportingDocuments = ({ onSubmit }) => {
 
   return (
     <div style={{ padding: "20px 0" }}>
-      <div className="text-center">
-        <img
-          src="/assets/supporting_doc.png"
-          width={60}
-          alt="Register SIM"
-        />
-      </div>
-      <Title
-        level={4}
-        className="text-center-primary"
-      >
-        {t("stepFour.docInfoDesc")}
-      </Title>
-      <p className="text-center text-gray">
-        {t("stepFour.docInfoSubDesc")}
-      </p>
+      {!isAccordionOpen && (
+        <>
+          <div className="text-center">
+            <img
+              src="/assets/supporting_doc.png"
+              width={60}
+              alt="Register SIM"
+            />
+          </div>
+          <Title level={4} className="text-center-primary">
+            {t("stepFour.docInfoDesc")}
+          </Title>
+          <p className="text-center text-gray">
+            {t("stepFour.docInfoSubDesc")}
+          </p>
+        </>
+      )}
 
       <Form form={form} layout="vertical" onFinish={handleSubmit}>
         <div>
-
-          <img
-            src="/assets/doc.png"
-            alt="Documents"
-            style={{ width: 40 }}
-          />
-          <p className="text-black" style={{ fontSize: "1.2rem" }}> {t("stepFour.docInfoFcHeaderMainText")}</p>
+          <img src="/assets/doc.png" alt="Documents" style={{ width: 40 }} />
+          <p className="text-black" style={{ fontSize: "1.2rem" }}>
+            {" "}
+            {t("stepFour.docInfoFcHeaderMainText")}
+          </p>
 
           <div style={{ marginBottom: "16px" }}>
             {!isAccordionOpen && (
@@ -240,7 +239,7 @@ const SupportingDocuments = ({ onSubmit }) => {
                 showRemoveIcon: true,
               }}
             >
-              <div className="step-four-upload-input" >
+              <div className="step-four-upload-input">
                 <PaperClipOutlined className="text-gray" />
                 <span className="text-gray">
                   Scan, browse, or drag & drop here.

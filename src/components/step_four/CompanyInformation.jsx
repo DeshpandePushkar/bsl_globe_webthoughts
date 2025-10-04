@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form, Input, Select, Button, Typography } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
-import psgcData from "../../psgc.json"; // Adjust path as needed
+import { useLanguage } from "../../hooks/useLanguage";
+import psgcData from "../../../psgc.json";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -179,15 +179,10 @@ const CompanyInformation = ({ onSubmit }) => {
           alt="Register SIM"
         />
       </div>
-      <Title
-        level={4}
-        className="text-center-primary"
-      >
+      <Title level={4} className="text-center-primary">
         {t("stepFour.desc")}
       </Title>
-      <p className="text-center text-gray">
-        {t("stepFour.subDesc")}
-      </p>
+      <p className="text-center text-gray">{t("stepFour.subDesc")}</p>
 
       <div className="step-four-form-container">
         <Form
@@ -195,17 +190,30 @@ const CompanyInformation = ({ onSubmit }) => {
           layout="vertical"
           onFinish={handleSubmit}
           autoComplete="off"
+          initialValues={{
+            province: "ILOCOS NORTE",
+            city: "BACARRA",
+            barangay: "Bani",
+            zipCode: "2403",
+          }}
         >
           {/* Company Details Section */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: 20,
+              }}
+            >
               <span className="step-item" style={{ gap: 4 }}>
                 <img
                   src="/assets/location.png" //change icon not match with figma
                   alt="Personal Info"
                   style={{ width: 30 }}
                 />
-                {t("stepFour.detailsHeading")}</span>
+                {t("stepFour.detailsHeading")}
+              </span>
               <span className="form-required-field">
                 * {t("stepFour.formRequiredLabel")}
               </span>
@@ -222,6 +230,7 @@ const CompanyInformation = ({ onSubmit }) => {
                   ).toLowerCase()}`,
                 },
               ]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -233,14 +242,21 @@ const CompanyInformation = ({ onSubmit }) => {
 
           {/* Company Location Section */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: 20,
+              }}
+            >
               <span className="step-item" style={{ gap: 4 }}>
                 <img
                   src="/assets/location.png" //change icon not match with figma
                   alt="Personal Info"
                   style={{ width: 30 }}
                 />
-                {t("stepFour.locationDetailsHeading")}</span>
+                {t("stepFour.locationDetailsHeading")}
+              </span>
               <span className="form-required-field">
                 * {t("stepFour.formRequiredLabel")}
               </span>
@@ -276,6 +292,7 @@ const CompanyInformation = ({ onSubmit }) => {
                   ).toLowerCase()}`,
                 },
               ]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -287,6 +304,7 @@ const CompanyInformation = ({ onSubmit }) => {
             <Form.Item
               label={t("stepFour.locationDetailsInputLabel3")}
               name="village"
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -295,86 +313,86 @@ const CompanyInformation = ({ onSubmit }) => {
               />
             </Form.Item>
 
-            {/* <Form.Item
-            label={t("stepFour.locationDetailsInputLabel4")}
-            name="province"
-            rules={[
-              {
-                required: true,
-                message: `Please select ${t(
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel4")}
+              name="province"
+              rules={[
+                {
+                  required: true,
+                  message: `Please select ${t(
+                    "stepFour.locationDetailsInputLabel4"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Select
+                placeholder={`Select ${t(
                   "stepFour.locationDetailsInputLabel4"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Select
-              placeholder={`Select ${t(
-                "stepFour.locationDetailsInputLabel4"
-              ).toLowerCase()}`}
-              onSelect={handleProvinceSelect}
-              disabled={provinces.length === 0}
-            >
-              {provinces.map((province) => (
-                <Option key={province.code} value={province.code}>
-                  {province.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item> */}
+                ).toLowerCase()}`}
+                onSelect={handleProvinceSelect}
+                disabled={provinces.length === 0}
+              >
+                {provinces.map((province) => (
+                  <Option key={province.code} value={province.code}>
+                    {province.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-            {/* <Form.Item
-            label={t("stepFour.locationDetailsInputLabel5")}
-            name="city"
-            rules={[
-              {
-                required: true,
-                message: `Please select ${t(
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel5")}
+              name="city"
+              rules={[
+                {
+                  required: true,
+                  message: `Please select ${t(
+                    "stepFour.locationDetailsInputLabel5"
+                  ).toLowerCase()}`,
+                },
+              ]}
+            >
+              <Select
+                placeholder={`Select ${t(
                   "stepFour.locationDetailsInputLabel5"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Select
-              placeholder={`Select ${t(
-                "stepFour.locationDetailsInputLabel5"
-              ).toLowerCase()}`}
-              onSelect={handleMunicipalitySelect}
-              disabled={municipalities.length === 0}
-            >
-              {municipalities.map((city) => (
-                <Option key={city.code} value={city.code}>
-                  {city.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item> */}
+                ).toLowerCase()}`}
+                onSelect={handleMunicipalitySelect}
+                disabled={municipalities.length === 0}
+              >
+                {municipalities.map((city) => (
+                  <Option key={city.code} value={city.code}>
+                    {city.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-            {/* <Form.Item
-            label={t("stepFour.locationDetailsInputLabel6")}
-            name="barangay"
-            rules={[
-              {
-                required: true,
-                message: `Please select ${t(
-                  "stepFour.locationDetailsInputLabel6"
-                ).toLowerCase()}`,
-              },
-            ]}
-          >
-            <Select
-              placeholder={`Select ${t(
-                "stepFour.locationDetailsInputLabel6"
-              ).toLowerCase()}`}
-              onSelect={handleBarangaySelect}
-              disabled={barangays.length === 0}
+            <Form.Item
+              label={t("stepFour.locationDetailsInputLabel6")}
+              name="barangay"
+              rules={[
+                {
+                  required: true,
+                  message: `Please select ${t(
+                    "stepFour.locationDetailsInputLabel6"
+                  ).toLowerCase()}`,
+                },
+              ]}
             >
-              {barangays.map((barangay) => (
-                <Option key={barangay.code} value={barangay.code}>
-                  {barangay.name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item> */}
+              <Select
+                placeholder={`Select ${t(
+                  "stepFour.locationDetailsInputLabel6"
+                ).toLowerCase()}`}
+                onSelect={handleBarangaySelect}
+                disabled={barangays.length === 0}
+              >
+                {barangays.map((barangay) => (
+                  <Option key={barangay.code} value={barangay.code}>
+                    {barangay.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
             <Form.Item
               label={t("stepFour.locationDetailsInputLabel7")}

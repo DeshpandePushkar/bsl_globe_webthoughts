@@ -1,6 +1,6 @@
 import { Button, Divider, Flex, Typography } from "antd";
-import DocumentAutoCapture from "./innovatrics/DocumentAutoCapture";
-import { useLanguage } from "../hooks/useLanguage";
+import DocumentAutoCapture from "../innovatrics/DocumentAutoCapture";
+import { useLanguage } from "../../hooks/useLanguage";
 import { useState } from "react";
 
 const { Title } = Typography;
@@ -20,13 +20,7 @@ const DocumentScan = ({ onContinue }) => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div className="main-steps-container">
       <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <Title
           level={5}
@@ -47,27 +41,38 @@ const DocumentScan = ({ onContinue }) => {
         </Title>
       </div>
       <div style={{ textAlign: "center" }}>
-        <img
-          src="/assets/step3-3/1.png"
-          width={60}
-          alt="Register SIM"
-        />
+        <img src="/assets/step3-3/1.png" width={60} alt="Register SIM" />
       </div>
-      <Title
-        level={4}
-        className="text-center-primary"
-      >
-        {showDocument ? t("stepThree.pointTwoMainResult") : t("stepThree.pointTwoMainDesc")}
+      <Title level={4} className="text-center-primary">
+        {showDocument
+          ? t("stepThree.pointTwoMainResult")
+          : t("stepThree.pointTwoMainDesc")}
       </Title>
-      {showDocument && <span className="text-gray text-center">{t("stepThree.pointThreeSelfieText")}</span>}
+      {showDocument && (
+        <span className="text-gray text-center">
+          {t("stepThree.pointThreeSelfieText")}
+        </span>
+      )}
       <div>
-        {showDocument ?
+        {showDocument ? (
           <>
-            <img src={scanDocumentUrl} style={{ objectFit: "cover" }} width="100%" />
+            <img
+              src={scanDocumentUrl}
+              style={{ objectFit: "cover" }}
+              width="100%"
+            />
             <Divider />
-            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 15 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: 15,
+              }}
+            >
               <span>{t("stepThree.pointTwoDocumentScanAnalysis")}</span>
-              <span className="text-success" style={{ fontSize: 16 }}>{t("stepThree.pointThreePassed")}</span>
+              <span className="text-success" style={{ fontSize: 16 }}>
+                {t("stepThree.pointThreePassed")}
+              </span>
             </div>
             <div className="buttons-container">
               <Button type="primary" size="large" block onClick={onContinue}>
@@ -75,8 +80,9 @@ const DocumentScan = ({ onContinue }) => {
               </Button>
             </div>
           </>
-
-          : <DocumentAutoCapture onPhotoTaken={handleDocumentScanComplete} />}
+        ) : (
+          <DocumentAutoCapture onPhotoTaken={handleDocumentScanComplete} />
+        )}
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Image } from "antd";
 import { DownOutlined, UpOutlined, EditOutlined } from "@ant-design/icons";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
-const SummaryReview = ({ data, onContinue }) => {
+const SummaryReview = ({ data, onContinue, handleEdit }) => {
   const { t } = useLanguage();
   const [idDetailsExpanded, setIdDetailsExpanded] = useState(false);
 
   const handleEditClick = (section) => {
-    console.log(`Edit clicked for: ${section}`);
+    handleEdit(section);
   };
 
   const InfoRow = ({ label, value }) => (
@@ -92,7 +92,8 @@ const SummaryReview = ({ data, onContinue }) => {
           {data.governmentId.type}
         </p>
         <Image
-          src={data.governmentId.imageUrl}
+          //src={data.governmentId.imageUrl}
+          src="/assets/dummy.webp"
           alt="Government ID"
           style={{ width: "100%", maxWidth: "400px", borderRadius: "8px" }}
           fallback="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
@@ -236,6 +237,7 @@ const SummaryReview = ({ data, onContinue }) => {
             icon="/assets/location.png"
             title={t("stepFive.sixthContainerHeading")}
             showEdit={true}
+            editSection="company-details"
           />
           <InfoRow
             label={t("stepFive.sixthContainerLabel1")}
@@ -286,9 +288,10 @@ const SummaryReview = ({ data, onContinue }) => {
       {data.supportingDocuments && (
         <>
           <SectionHeader
-            icon="/assets/supproting_doc.png"
+            icon="/assets/supporting_doc1.png"
             title={t("stepFive.eighthContainerHeading")}
             showEdit={true}
+            editSection="supporting-docs"
           />
           <InfoRow
             label={t("stepFive.eighthContainerLabel1")}

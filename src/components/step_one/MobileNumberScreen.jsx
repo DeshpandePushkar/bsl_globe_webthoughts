@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Input, Button, Checkbox, Typography, Row, Col } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -75,7 +75,7 @@ const MobileNumberScreen = ({ initialMobile = "", onSubmit }) => {
           <span className="link-text">
             {t("verification.hpwNote.linkText1")}
           </span>
-          , {t("verification.hpwNote.part2")}{" "}
+          {t("verification.hpwNote.part2")}{" "}
           <a
             href="http://192.168.0.254/"
             target="_blank"

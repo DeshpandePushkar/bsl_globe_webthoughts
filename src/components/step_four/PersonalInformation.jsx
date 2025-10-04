@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Form, Input, Select, DatePicker, Button, Typography } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
-import psgcData from "../../psgc.json";
+import { useLanguage } from "../../hooks/useLanguage";
+import psgcData from "../../../psgc.json";
 const { Option } = Select;
-
 
 const { Title } = Typography;
 
@@ -187,10 +186,7 @@ const PersonalInformation = ({ onSubmit }) => {
           alt="Register SIM"
         />
       </div>
-      <Title
-        level={4}
-        className="text-center-primary"
-      >
+      <Title level={4} className="text-center-primary">
         {t("stepFour.personalDetailsDesc")}
       </Title>
       <p className="text-center text-gray">
@@ -203,17 +199,30 @@ const PersonalInformation = ({ onSubmit }) => {
           layout="vertical"
           onFinish={handleSubmit}
           autoComplete="off"
+          initialValues={{
+            province: "ILOCOS NORTE",
+            city: "BACARRA",
+            barangay: "Bani",
+            zipCode: "2403",
+          }}
         >
           {/* Personal Information Section */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: 20,
+              }}
+            >
               <span className="step-item" style={{ gap: 4 }}>
                 <img
                   src="/assets/personal_details_icon.png"
                   alt="Personal Info"
                   style={{ width: 30 }}
                 />
-                {t("stepFour.iconLabel")}</span>
+                {t("stepFour.iconLabel")}
+              </span>
               <span className="form-required-field">
                 * {t("stepFour.formRequiredLabel")}
               </span>
@@ -229,6 +238,7 @@ const PersonalInformation = ({ onSubmit }) => {
                   ).toLowerCase()}`,
                 },
               ]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -240,6 +250,7 @@ const PersonalInformation = ({ onSubmit }) => {
             <Form.Item
               label={t("stepFour.personalDetailsMiddlenameLabel")}
               name="middleName"
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -259,6 +270,7 @@ const PersonalInformation = ({ onSubmit }) => {
                   ).toLowerCase()}`,
                 },
               ]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input
                 placeholder={`Enter ${t(
@@ -270,6 +282,7 @@ const PersonalInformation = ({ onSubmit }) => {
             <Form.Item
               label={t("stepFour.personalDetailsSuffixLabel")}
               name="suffix"
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input placeholder="Jr., Sr., III (optional)" />
             </Form.Item>
@@ -288,7 +301,7 @@ const PersonalInformation = ({ onSubmit }) => {
             >
               <DatePicker
                 style={{ width: "100%" }}
-                format="MM/DD/YYYY"
+                format="YYYY/MM/DD"
                 placeholder={`Select ${t(
                   "stepFour.personalDetailsBirthdateLabel"
                 ).toLowerCase()}`}
@@ -321,14 +334,21 @@ const PersonalInformation = ({ onSubmit }) => {
 
           {/* Address Section */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: 20,
+              }}
+            >
               <span className="step-item" style={{ gap: 4 }}>
                 <img
                   src="/assets/location.png"
                   alt="Personal Info"
                   style={{ width: 30 }}
                 />
-                {t("stepFour.iconLabel")}</span>
+                {t("stepFour.iconLabel")}
+              </span>
               <span className="form-required-field">
                 * {t("stepFour.formRequiredLabel")}
               </span>
@@ -340,6 +360,7 @@ const PersonalInformation = ({ onSubmit }) => {
               rules={[
                 { required: true, message: "Please enter unit/building name" },
               ]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input placeholder="Enter unit number or building name" />
             </Form.Item>
@@ -348,11 +369,16 @@ const PersonalInformation = ({ onSubmit }) => {
               label="Street"
               name="street"
               rules={[{ required: true, message: "Please enter street" }]}
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
             >
               <Input placeholder="Enter street name" />
             </Form.Item>
 
-            <Form.Item label="Village or Subdivision" name="village">
+            <Form.Item
+              label="Village or Subdivision"
+              name="village"
+              getValueFromEvent={(e) => e.target.value.toUpperCase()}
+            >
               <Input placeholder="Enter village or subdivision (optional)" />
             </Form.Item>
 

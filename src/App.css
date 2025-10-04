@@ -441,3 +441,9 @@ body {
   margin: 0;
   color: var(--primary-blue);
 }
+
+.main-steps-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}

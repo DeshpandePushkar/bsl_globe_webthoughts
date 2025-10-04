@@ -4,7 +4,7 @@ import PersonalInformation from "./PersonalInformation";
 import CompanyInformation from "./CompanyInformation";
 import SupportingDocuments from "./SupportingDocuments";
 import { Button, Typography, Row, Col } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title } = Typography;
 
@@ -23,6 +23,10 @@ const StepFour = () => {
     console.log("Personal Information Data:", data);
     setPersonalData(data);
     setCurrentScreen("company");
+    const layoutElement = document.querySelector(".ant-layout");
+    if (layoutElement) {
+      layoutElement.scrollTop = 0;
+    }
   };
 
   // Handle continue from company information screen
@@ -30,6 +34,10 @@ const StepFour = () => {
     console.log("Company Information Data:", data);
     setCompanyData(data);
     setCurrentScreen("documents");
+    const layoutElement = document.querySelector(".ant-layout");
+    if (layoutElement) {
+      layoutElement.scrollTop = 0;
+    }
   };
 
   // Handle continue from supporting documents screen
@@ -45,17 +53,11 @@ const StepFour = () => {
     });
 
     // Navigate to next step or do something else
-    // navigate("/digital-onboarding/step-five");
+    navigate("/digital-onboarding/step-five");
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "20px",
-      }}
-    >
+    <div className="main-steps-container">
       <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <Title
           level={5}
@@ -64,10 +66,7 @@ const StepFour = () => {
           {t("verification.subtitle")}
         </Title>
 
-        <Title
-          level={4}
-          className="text-center-primary"
-        >
+        <Title level={4} className="text-center-primary">
           {t("stepFour.number")} {t("stepFour.mainDesc")}
         </Title>
       </div>

@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Input, Button, Typography } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title, Paragraph } = Typography;
 
 const OTPVerificationScreen = ({
   mobileNumber,
-  onVerified,
+  onSubmit,
   onResend,
   onEditMobile,
 }) => {
@@ -84,7 +84,7 @@ const OTPVerificationScreen = ({
   const handleContinue = () => {
     if (isFormValid) {
       const otpCode = otpValues.join("");
-      onVerified(otpCode);
+      onSubmit(otpCode);
     }
   };
 

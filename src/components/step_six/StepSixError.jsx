@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const StepSixError = ({ data, onRetry, onGoHome }) => {
   const { t } = useLanguage();
@@ -66,9 +66,7 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
           >
             Mobile phone number
           </div>
-          <div>
-            {data.mobileNumber}
-          </div>
+          <div>{data.mobileNumber}</div>
         </div>
 
         <div>
@@ -81,27 +79,17 @@ const StepSixError = ({ data, onRetry, onGoHome }) => {
           >
             Date of SIM Registration
           </div>
-          <div>
-            {data.registrationDate}
-          </div>
+          <div>{data.registrationDate}</div>
         </div>
       </div>
 
       {/* Action Buttons */}
       <div className="buttons-container">
-        <Button
-          type="primary"
-          size="large"
-          block
-          onClick={onRetry}>
+        <Button type="primary" size="large" block onClick={onRetry}>
           {t("finalScreen.primaryErrorBtnLabel")}
         </Button>
 
-        <Button
-          size="large"
-          block
-          onClick={onGoHome}
-        >
+        <Button size="large" block onClick={onGoHome}>
           {t("finalScreen.secondaryErrorBtnLabel")}
         </Button>
       </div>

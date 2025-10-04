@@ -6,9 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import SimRegistrationPage from "./components/SimRegistrationPage";
-import StepOne from "./components/StepOne";
+import StepOne from "./components/step_one/StepOne";
 import PageTracker from "./utils/PageTracker";
-import { initGA } from "./utils/analytics";
 import InactivityHandler from "./utils/InactivityHandler";
 import InactivityPage from "./components/InactivityPage";
 import NavigationProtection from "./utils/NavigationProtection";
@@ -16,18 +15,13 @@ import { AuthProvider } from "./context/authContext";
 import { OnboardingDataProvider } from "./context/OnboardingDataContext";
 import ScrollToTop from "./components/ScrollToTop";
 import MainLayout from "./components/MainLayout";
-import StepTwo from "./components/StepTwo";
-import StepThree from "./components/StepThree";
-import StepFour from "./components/StepFour";
-import StepFive from "./components/StepFive";
-import StepSix from "./components/StepSix";
+import StepTwo from "./components/step_two/StepTwo";
+import StepThree from "./components/step_three/StepThree";
+import StepFour from "./components/step_four/StepFour";
+import StepFive from "./components/step_five/StepFive";
+import StepSix from "./components/step_six/StepSix";
 
 function App() {
-  useEffect(() => {
-    initGA();
-    console.log("App initialized with Google Analytics");
-  }, []);
-
   return (
     <AuthProvider>
       <OnboardingDataProvider>

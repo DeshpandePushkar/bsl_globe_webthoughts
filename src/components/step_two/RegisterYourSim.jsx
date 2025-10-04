@@ -1,5 +1,5 @@
 import { Button, Typography } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title, Paragraph } = Typography;
 

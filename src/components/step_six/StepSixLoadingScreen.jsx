@@ -1,6 +1,6 @@
 import React from "react";
 import { Spin } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const StepSixLoadingScreen = () => {
   const { t } = useLanguage();
@@ -68,9 +68,9 @@ const StepSixLoadingScreen = () => {
       </p>
 
       {/* Loading spinner */}
-      <div style={{ marginTop: "32px" }}>
+      {/* <div style={{ marginTop: "32px" }}>
         <Spin size="large" />
-      </div>
+      </div> */}
     </div>
   );
 };

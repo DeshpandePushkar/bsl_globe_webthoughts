@@ -1,6 +1,6 @@
 import { Button, Divider, Typography } from "antd";
-import SmileLiveness from "./innovatrics/SmileLiveness";
-import { useLanguage } from "../hooks/useLanguage";
+import SmileLiveness from "../innovatrics/SmileLiveness";
+import { useLanguage } from "../../hooks/useLanguage";
 import { useState } from "react";
 
 const { Title } = Typography;
@@ -19,13 +19,7 @@ const SelfieCapture = ({ onContinue }) => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div className="main-steps-container">
       <div style={{ textAlign: "center", marginBottom: "22px" }}>
         <Title
           level={5}
@@ -52,27 +46,36 @@ const SelfieCapture = ({ onContinue }) => {
           alt="Register SIM"
         />
       </div>
-      <Title
-        level={4}
-        className="text-center-primary"
-      >
-        {showDocument ? t("stepThree.pointThreeResult") : t("stepThree.pointThreeMainDesc")}
+      <Title level={4} className="text-center-primary">
+        {showDocument
+          ? t("stepThree.pointThreeResult")
+          : t("stepThree.pointThreeMainDesc")}
       </Title>
 
       <div>
-        {showDocument ?
+        {showDocument ? (
           <>
-            <img src={scanDocumentUrl} style={{ objectFit: "cover" }} width="100%" />
+            <img
+              src={scanDocumentUrl}
+              style={{ objectFit: "cover" }}
+              width="100%"
+            />
             <Divider />
-            <span className="text-gray text-center" style={{ paddingBottom: 20 }}>{t("stepThree.pointThreeSelfieText")}</span>
+            <span
+              className="text-gray text-center"
+              style={{ paddingBottom: 20 }}
+            >
+              {t("stepThree.pointThreeSelfieText")}
+            </span>
             <div className="buttons-container">
               <Button type="primary" size="large" block onClick={onContinue}>
                 {t("infoPage.primaryBtn")}
               </Button>
             </div>
           </>
-
-          : <SmileLiveness onPhotoTaken={handleSelfieComplete} />}
+        ) : (
+          <SmileLiveness onPhotoTaken={handleSelfieComplete} />
+        )}
       </div>
     </div>
   );

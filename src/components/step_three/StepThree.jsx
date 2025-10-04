@@ -4,6 +4,7 @@ import StepThreeInfo from "./StepThreeInfo";
 import StepThreeInstructions from "./StepThreeInstructions";
 import DocumentScan from "./DocumentScan";
 import SelfieCapture from "./SelfieCapture";
+import SelfieInstructionsModal from "./SelfieInstructionsModal";
 
 const StepThree = () => {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ const StepThree = () => {
 
   // Handle continue from document scan
   const handleDocumentScanContinue = () => {
+    setCurrentScreen("selfieInstructions");
+  };
+
+  const handleSelfiInstructionContinue = () => {
     setCurrentScreen("selfieCapture");
   };
 
@@ -30,17 +35,11 @@ const StepThree = () => {
   const handleSelfieContinue = () => {
     console.log("Selfie capture complete");
     // Navigate to step four or do something else later
-    // navigate("/digital-onboarding/step-four");
+    navigate("/digital-onboarding/step-four");
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "16px",
-      }}
-    >
+    <div className="main-steps-container">
       {currentScreen === "info" && (
         <StepThreeInfo onContinue={handleInfoContinue} />
       )}
@@ -51,6 +50,10 @@ const StepThree = () => {
 
       {currentScreen === "documentScan" && (
         <DocumentScan onContinue={handleDocumentScanContinue} />
+      )}
+
+      {currentScreen === "selfieInstructions" && (
+        <SelfieInstructionsModal onContinue={handleSelfiInstructionContinue} />
       )}
 
       {currentScreen === "selfieCapture" && (

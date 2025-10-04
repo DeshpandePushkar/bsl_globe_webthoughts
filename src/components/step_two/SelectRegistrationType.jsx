@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Typography, Row, Col, Select } from "antd";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const { Title, Text } = Typography;
 
@@ -73,9 +73,40 @@ const SelectRegistrationType = ({ initialType = "", onSubmit }) => {
             value={selectedType || undefined}
             onChange={(value) => setSelectedType(value)}
             options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
+              {
+                typeKey: "Sim Owner",
+                value: "I am a Filipino SIM owner",
+              },
+              {
+                typeKey: "Parent or Legal guardian",
+                value:
+                  "I am a Parent or Legal Guardian registering the SIM of a minor",
+              },
+              {
+                typeKey: "Auth Signatory or representative",
+                value:
+                  "I am an Authorized Representative of the business registering the SIM",
+              },
+              {
+                typeKey: "Foreign Tourist",
+                value: "Foreigner - I am a Foreign Tourist",
+              },
+              {
+                typeKey: "Foreigner Working Resident",
+                value: "Foreigner - I am a Foreign Working Resident",
+              },
+              {
+                typeKey: "Foreigner Student Resident",
+                value: "Foreigner - I am a Foreign Student Resident",
+              },
+              {
+                typeKey: "Foreigner Resident",
+                value: "Foreigner - I am a Foreign Resident",
+              },
+              {
+                typeKey: "Foreigner Persona of concern",
+                value: "Foreigner - I am a Foreign Person of Concern",
+              },
             ]}
           />
         </Row>
